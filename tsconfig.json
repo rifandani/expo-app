@@ -1,0 +1,16 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    // path aliases for web only supported when we use `@expo/metro-config` instead of `@expo/webpack-config`
+    "paths": {
+      "#assets/*": ["src/assets/*"],
+      "#home/*": ["src/modules/home/*"],
+      "#auth/*": ["src/modules/auth/*"],
+      "#playground/*": ["src/modules/playground/*"],
+      "#shared/*": ["src/modules/shared/*"]
+    }
+  },
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"]
+}

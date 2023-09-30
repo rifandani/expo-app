@@ -1,0 +1,4 @@
+.expo
+src/assets
+node_modules
+.gitignore

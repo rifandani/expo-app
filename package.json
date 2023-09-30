@@ -1,0 +1,50 @@
+{
+  "name": "expo-app",
+  "description": "Bulletproof Expo SDK 49 Template",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tri Rizeki Rifandani",
+    "email": "tri.rifandani@gmail.com"
+  },
+  "private": false,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "ts:check": "tsc",
+    "start": "expo start",
+    "start:clean": "expo start -c",
+    "start:prod": "expo start --no-dev --minify",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/metro-config": "~0.10.0",
+    "@expo/vector-icons": "^13.0.0",
+    "expo": "~49.0.13",
+    "expo-status-bar": "~1.6.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.72.5",
+    "react-native-gesture-handler": "~2.12.0",
+    "react-native-reanimated": "~3.3.0",
+    "react-native-web": "~0.19.6",
+    "expo-av": "~13.4.1",
+    "expo-constants": "~14.4.2",
+    "expo-splash-screen": "~0.20.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/react": "~18.2.23",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-universe": "^12.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
