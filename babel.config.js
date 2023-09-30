@@ -10,6 +10,7 @@ module.exports = function (api) {
       // It is now included in babel-preset-expo in Expo SDK 49
       // '@babel/plugin-proposal-export-namespace-from',
       'react-native-reanimated/plugin',
+      'expo-router/babel',
     ],
   };
 };

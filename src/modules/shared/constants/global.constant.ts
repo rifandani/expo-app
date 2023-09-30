@@ -1,5 +1,9 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 export const windowDimension = Dimensions.get('window');
 export const screenDimension = Dimensions.get('screen');
-export const isTablet = windowDimension.width >= 768;
+
+export const IS_TABLET = windowDimension.width >= 768;
+export const IS_ANDROID = Platform.OS === 'android';
+export const IS_IOS = Platform.OS === 'ios';
+export const IS_WEB = Platform.OS === 'web';

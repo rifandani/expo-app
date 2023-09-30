@@ -3,11 +3,13 @@
     "experiments": {
       "tsconfigPaths": true
     },
+    "plugins": ["expo-router"],
     "name": "expo-app",
     "slug": "expo-app",
+    "scheme": "expo-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "assetBundlePatterns": ["**/*"],
     "icon": "./src/assets/icon.png",
     "splash": {
