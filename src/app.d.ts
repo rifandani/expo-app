@@ -1,8 +1,15 @@
-// /// <reference types="nativewind/types" />
+import { config } from './bootstrap/configs/tamagui.config';
 
-// declare module 'valtio' {
-//   function useSnapshot<T extends object>(p: T): T;
-// }
+declare module '*.png' {
+  const value: any;
+  export = value;
+}
+
+type Conf = typeof config;
+
+declare module 'tamagui' {
+  interface TamaguiCustomConfig extends Conf {}
+}
 
 // declare module '*.svg' {
 //   import React from 'react';
@@ -10,8 +17,3 @@
 //   const content: React.FC<SvgProps>;
 //   export default content;
 // }
-
-declare module '*.png' {
-  const value: any;
-  export = value;
-}

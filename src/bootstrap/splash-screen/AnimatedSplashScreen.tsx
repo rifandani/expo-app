@@ -20,7 +20,7 @@ export function AnimatedSplashScreen({ children }: PropsWithChildren) {
     try {
       await SplashScreen.hideAsync();
       // Load stuff
-      await Promise.all([]);
+      // await Promise.all([]);
     } finally {
       setAppReady(true);
     }

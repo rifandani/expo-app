@@ -1,40 +1,17 @@
-import * as SplashScreen from 'expo-splash-screen';
-import { StyleSheet, Text, View } from 'react-native';
+import { ErrorBoundaryProps } from 'expo-router';
+import { Pressable, Text, View } from 'react-native';
 
-import { AnimatedSplashScreen } from '#shared/components/splash/AnimatedSplashScreen';
+import { HomePage } from '#home/pages/Home.page';
 
-// Instruct SplashScreen not to hide yet, we want to do this manually
-SplashScreen.preventAutoHideAsync().catch(() => {
-  /* reloading the app might trigger some race conditions, ignore them */
-});
-
-function MainScreen() {
+export function ErrorBoundary(props: ErrorBoundaryProps) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hello Universe!</Text>
+    <View style={{ flex: 1, backgroundColor: 'red' }}>
+      <Text>{props.error.message}</Text>
+      <Pressable onPress={props.retry}>Try Again?</Pressable>
     </View>
   );
 }
 
-export default function App() {
-  return (
-    <AnimatedSplashScreen>
-      <MainScreen />
-    </AnimatedSplashScreen>
-  );
+export default function Root() {
+  return <HomePage />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    color: 'black',
-    fontSize: 30,
-    marginBottom: 15,
-    fontWeight: 'bold',
-  },
-});

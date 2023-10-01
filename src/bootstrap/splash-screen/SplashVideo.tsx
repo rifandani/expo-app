@@ -17,8 +17,8 @@ export function SplashVideo({ onLoaded, onFinish }: SplashVideoProps) {
 
   const isTablet = width >= 768;
   const source = isTablet
-    ? require('../../../../assets/splash-tablet.mp4')
-    : require('../../../../assets/splash.mp4');
+    ? require('../../assets/splash-tablet.mp4')
+    : require('../../assets/splash.mp4');
   const shouldPlay = !(lastStatus.isLoaded && lastStatus.didJustFinish);
 
   // #region HANDLERS
