@@ -1,5 +1,5 @@
 import { useFonts } from 'expo-font';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 
 /**
  * Load all required fonts.
@@ -11,8 +11,13 @@ export function BaseFontProvider({ children }: PropsWithChildren) {
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
   });
 
+  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+  useEffect(() => {
+    if (error) throw error;
+  }, [error]);
+
   // Prevent rendering until the font has loaded or an error was returned
-  if (!loaded || error) {
+  if (!loaded) {
     return null;
   }
 

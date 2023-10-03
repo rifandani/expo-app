@@ -16,6 +16,16 @@ export function AnimatedSplashScreen({ children }: PropsWithChildren) {
   const opacity = useMemo(() => new Animated.Value(1), []);
 
   // #region HANDLERS
+  const fadeOut = () => {
+    Animated.timing(opacity, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setAnimationComplete(true);
+    });
+  };
+
   const onImageLoaded = useCallback(async () => {
     try {
       await SplashScreen.hideAsync();
@@ -33,11 +43,7 @@ export function AnimatedSplashScreen({ children }: PropsWithChildren) {
 
   useEffect(() => {
     if (isAppReady && isSplashVideoComplete) {
-      Animated.timing(opacity, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: true,
-      }).start(() => setAnimationComplete(true));
+      fadeOut();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAppReady, isSplashVideoComplete]);

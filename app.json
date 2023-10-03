@@ -4,7 +4,8 @@
       "tsconfigPaths": true
     },
     "plugins": ["expo-router"],
-    "name": "expo-app",
+    "owner": "rifandani",
+    "name": "Expo App",
     "slug": "expo-app",
     "scheme": "expo-app",
     "version": "1.0.0",
@@ -24,6 +25,7 @@
       }
     },
     "ios": {
+      "bundleIdentifier": "com.rifandani.expoapp",
       "splash": {
         "image": "./src/assets/splash.png",
         "tabletImage": "./src/assets/splash-tablet.png",
