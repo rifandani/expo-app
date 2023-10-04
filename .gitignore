@@ -30,6 +30,14 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env.*
+!.env.*.example
 
 # typescript
 *.tsbuildinfo
+
+# tamagui
+.tamagui
+
+# expo router
+expo-env.d.ts

@@ -1,8 +1,20 @@
 import { ToastViewport } from '@tamagui/toast';
+import { ComponentPropsWithoutRef } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export function SafeToastViewport() {
-  const { left, top, right } = useSafeAreaInsets();
+type Props = ComponentPropsWithoutRef<typeof ToastViewport>;
 
-  return <ToastViewport top={top + 5} left={left} right={right} />;
+export function BaseToastViewport(props: Props) {
+  const { left, bottom, right } = useSafeAreaInsets();
+
+  return (
+    <ToastViewport
+      fd="column"
+      bottom={bottom}
+      left={left}
+      right={right}
+      multipleToasts
+      {...props}
+    />
+  );
 }

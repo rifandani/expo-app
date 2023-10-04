@@ -3,7 +3,6 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": ".",
-    // path aliases for web only supported when we use `@expo/metro-config` instead of `@expo/webpack-config`
     "paths": {
       "#app/*": ["app/*"],
       "#bootstrap/*": ["src/bootstrap/*"],
@@ -14,5 +13,5 @@
       "#shared/*": ["src/modules/shared/*"]
     }
   },
-  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

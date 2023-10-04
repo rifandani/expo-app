@@ -1,8 +1,20 @@
-import FeatherIcon from '@expo/vector-icons/Feather';
-import { Stack } from 'expo-router';
-import { Button, Text, YStack } from 'tamagui';
+import Feather from '@expo/vector-icons/Feather';
+import { useToastController } from '@tamagui/toast';
+import { Stack, useRouter } from 'expo-router';
+import { Button, H1, Paragraph, YStack } from 'tamagui';
+
+import { envSchema } from '#shared/api/env.schema';
 
 export function HomePage() {
+  const env = envSchema.parse(process.env);
+  const { push } = useRouter();
+  const toast = useToastController();
+
+  const onClickLogin = () => {
+    push('/login');
+    toast.show('Login success');
+  };
+
   return (
     <>
       <Stack.Screen
@@ -12,16 +24,14 @@ export function HomePage() {
       />
 
       <YStack bg="$background">
-        <Text>Hello Universe!</Text>
+        <H1>Home Page</H1>
+        <Paragraph>ENV: {JSON.stringify(env, null, 2)}</Paragraph>
 
-        <Button bc="$blue1" color="$blue10">
+        <Button bc="$blue1" color="$blue10" onPress={onClickLogin}>
           <Button.Icon>
-            <FeatherIcon name="airplay" />
+            <Feather name="log-in" />
           </Button.Icon>
-          <Button.Text>Button with icon</Button.Text>
-          <Button.Icon>
-            <FeatherIcon name="activity" />
-          </Button.Icon>
+          <Button.Text>Login</Button.Text>
         </Button>
       </YStack>
     </>

@@ -8,14 +8,14 @@ module.exports = function (api) {
     presets: ['babel-preset-expo'],
     plugins: [
       // '@babel/plugin-proposal-export-namespace-from' is now already included in babel-preset-expo in Expo SDK 49
-      // optional, only if you ever use process.env
-      'transform-inline-environment-variables',
+      // 'transform-inline-environment-variables' process env is now already supported in Expo SDK 49
+
       // NOTE: this is optional, you don't *need* the compiler
       [
         '@tamagui/babel-plugin',
         {
           components: ['tamagui'],
-          config: './src/bootstrap/configs/tamagui.config.ts',
+          config: './tamagui.config.ts',
           logTimings: true,
         },
       ],

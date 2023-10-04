@@ -1,7 +1,7 @@
 import { useColorScheme } from 'react-native';
 import { TamaguiProvider, TamaguiProviderProps } from 'tamagui';
 
-import { config } from '#bootstrap/configs/tamagui.config';
+import config from '../../../tamagui.config';
 
 /**
  * Tamagui provider where we apply the `tamagui.config`.

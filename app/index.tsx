@@ -12,6 +12,4 @@ export function ErrorBoundary(props: ErrorBoundaryProps) {
   );
 }
 
-export default function Root() {
-  return <HomePage />;
-}
+export default HomePage;

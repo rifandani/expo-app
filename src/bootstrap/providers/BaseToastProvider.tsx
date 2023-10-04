@@ -1,7 +1,7 @@
 import { ToastProvider, ToastProviderProps } from '@tamagui/toast';
 
 import { BaseToast } from '#shared/components/toast/BaseToast';
-import { SafeToastViewport } from '#shared/components/toast/SafeToastViewport';
+import { BaseToastViewport } from '#shared/components/toast/SafeToastViewport';
 
 const SWIPE_DIRECTION = 'horizontal';
 const DURATION = 3_000; // 3s
@@ -15,6 +15,7 @@ export function BaseToastProvider({ children, ...rest }: ToastProviderProps) {
     <ToastProvider
       swipeDirection={SWIPE_DIRECTION}
       duration={DURATION}
+      burntOptions={{ from: 'bottom' }} // only on iOS
       native={
         [
           /* uncomment the next line to do native toasts on mobile. NOTE: it'll require you making a dev build and won't work with Expo Go */
@@ -25,7 +26,7 @@ export function BaseToastProvider({ children, ...rest }: ToastProviderProps) {
       {children}
 
       <BaseToast />
-      <SafeToastViewport />
+      <BaseToastViewport />
     </ToastProvider>
   );
 }
