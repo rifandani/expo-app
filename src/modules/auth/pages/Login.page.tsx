@@ -1,7 +1,9 @@
 import Feather from '@expo/vector-icons/Feather';
 import { Stack, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Button, H1, YStack } from 'tamagui';
+import { H2, YStack } from 'tamagui';
+
+import { BaseButton } from '#shared/components/button/BaseButton';
 
 export function LoginPage() {
   const router = useRouter();
@@ -18,15 +20,15 @@ export function LoginPage() {
         }}
       />
 
-      <YStack f={1}>
-        <H1>Login Page</H1>
+      <YStack f={1} p="$5">
+        <H2 ta="center">Welcome Back</H2>
 
-        <Button bc="$blue1" color="$blue10" onPress={onPress}>
-          <Button.Icon>
+        <BaseButton preset="primary" onPress={onPress}>
+          <BaseButton.Icon>
             <Feather name="log-in" />
-          </Button.Icon>
-          <Button.Text>Login</Button.Text>
-        </Button>
+          </BaseButton.Icon>
+          <BaseButton.Text>Login</BaseButton.Text>
+        </BaseButton>
       </YStack>
     </SafeAreaView>
   );

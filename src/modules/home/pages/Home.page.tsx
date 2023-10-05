@@ -1,21 +1,28 @@
 import Feather from '@expo/vector-icons/Feather';
-import { useToastController } from '@tamagui/toast';
-import { Stack, useRouter } from 'expo-router';
+import { Stack } from 'expo-router';
 import { Button, H1, Paragraph, YStack } from 'tamagui';
 
 import { useCheckAuth } from '#auth/hooks/useCheckAuth/useCheckAuth.hook';
+import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
 import { envSchema } from '#shared/api/env.schema';
+import { BaseSpinner } from '#shared/components/spinner/BaseSpinner';
 
 export function HomePage() {
-  useCheckAuth();
+  const [authed] = useCheckAuth();
+  const { clearUser } = useUserStore();
   const env = envSchema.parse(process.env);
-  const { push } = useRouter();
-  const toast = useToastController();
 
-  const onClickLogin = () => {
-    push('/login');
-    toast.show('Login success');
+  const onClickLogout = () => {
+    clearUser();
   };
+
+  if (!authed)
+    return (
+      <YStack f={1} jc="center" ai="center" gap="$5">
+        <BaseSpinner size="large" preset="primary" />
+        <Paragraph>Checking your authentication...</Paragraph>
+      </YStack>
+    );
 
   return (
     <>
@@ -27,13 +34,13 @@ export function HomePage() {
 
       <YStack f={1}>
         <H1>Home Page</H1>
-        <Paragraph>ENV: {JSON.stringify(env, null, 2)}</Paragraph>
+        <Paragraph>PUBLIC ENV: {JSON.stringify(env, null, 2)}</Paragraph>
 
-        <Button bc="$blue1" color="$blue10" onPress={onClickLogin}>
+        <Button bc="$blue1" color="$blue10" onPress={onClickLogout}>
           <Button.Icon>
-            <Feather name="log-in" />
+            <Feather name="log-out" />
           </Button.Icon>
-          <Button.Text>Login</Button.Text>
+          <Button.Text>Logout</Button.Text>
         </Button>
       </YStack>
     </>

@@ -1,6 +1,6 @@
 import { useToastController } from '@tamagui/toast';
 import { useFocusEffect, usePathname, useRouter } from 'expo-router';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
 
@@ -19,23 +19,27 @@ export function useCheckAuth() {
   const pathname = usePathname();
   const { user } = useUserStore();
   const toast = useToastController();
+  const [appReady, setAppReady] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
       const isLoginRoute = pathname === '/login';
 
-      if (!user && isLoginRoute) return;
-
-      if (!user) {
+      if (!user && !isLoginRoute) {
         push('/login');
         toast.show('Unauthorized'); // t('unauthorized')
         return;
       }
 
-      if (isLoginRoute) {
+      if (user && isLoginRoute) {
         push('/');
         toast.show('Authorized'); // t('authorized')
+        return;
       }
+
+      setAppReady(true);
     }, [pathname, push, toast, user])
   );
+
+  return [appReady];
 }
