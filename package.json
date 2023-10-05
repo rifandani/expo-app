@@ -18,7 +18,9 @@
     "build:dev:ios": "eas build --profile development-simulator --platform ios",
     "start": "expo start",
     "start:clean": "expo start -c",
-    "start:prod": "expo start --no-dev --minify"
+    "start:prod": "expo start --no-dev --minify",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@expo/metro-config": "~0.10.0",
