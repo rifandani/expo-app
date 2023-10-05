@@ -1,0 +1,37 @@
+{
+  "cli": {
+    "version": ">= 5.4.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      /**
+       * Environment variables defined in your eas.json build profile
+       * will be used when evaluating your app.config.js
+       * when running eas build and will be available to all steps of the build process on the EAS Build server
+       */
+      "env": {
+        "EXPO_PUBLIC_APP_TITLE": "Expo App (Dev)",
+        "EXPO_PUBLIC_API_BASE_URL": "https://dummyjson.com"
+      }
+    },
+    "development-simulator": {
+      "extends": "development",
+      "ios": {
+        "simulator": true
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_APP_TITLE": "Expo App (Test)",
+        "EXPO_PUBLIC_API_BASE_URL": "https://dummyjson.com"
+      }
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+  }
+}

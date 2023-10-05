@@ -4,7 +4,9 @@
       "typedRoutes": true,
       "tsconfigPaths": true
     },
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router"
+    ],
     "owner": "rifandani",
     "name": "Expo App",
     "slug": "expo-app",
@@ -12,7 +14,9 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "icon": "./src/assets/icon.png",
     "splash": {
       "image": "./src/assets/splash.png",
@@ -23,7 +27,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#000"
-      }
+      },
+      "package": "com.rifandani.expoapp"
     },
     "ios": {
       "bundleIdentifier": "com.rifandani.expoapp",
@@ -37,6 +42,14 @@
     "web": {
       "bundler": "metro",
       "favicon": "./src/assets/favicon.png"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "975abfb8-c490-47ad-ab6d-7b7c8c1a063d"
+      }
     }
   }
 }
