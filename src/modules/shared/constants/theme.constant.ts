@@ -57,7 +57,27 @@ export const presetVariantBg = {
  */
 export const presetVariantButton = {
   preset: {
-    default: {},
+    default: {}, // unstyled
+    outlined: {
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      borderColor: '$borderColor',
+
+      hoverStyle: {
+        backgroundColor: 'transparent',
+        borderColor: '$borderColorHover',
+      },
+
+      pressStyle: {
+        backgroundColor: 'transparent',
+        borderColor: '$borderColorPress',
+      },
+
+      focusStyle: {
+        backgroundColor: 'transparent',
+        borderColor: '$borderColorFocus',
+      },
+    },
     primary: {
       bg: '$purple5',
       color: '$purple10',

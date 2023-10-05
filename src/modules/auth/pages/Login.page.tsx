@@ -1,18 +1,19 @@
-import Feather from '@expo/vector-icons/Feather';
-import { Stack, useRouter } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { H2, YStack } from 'tamagui';
+import { H2, Paragraph, styled } from 'tamagui';
 
-import { BaseButton } from '#shared/components/button/BaseButton';
+import { LoginForm } from '#auth/components/login-form/LoginForm';
+
+const LoginSAV = styled(SafeAreaView, {
+  name: 'LoginSAV',
+  f: 1,
+  p: '$5',
+  jc: 'center',
+});
 
 export function LoginPage() {
-  const router = useRouter();
-  const onPress = () => {
-    router.push('/');
-  };
-
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <LoginSAV>
       <Stack.Screen
         options={{
           title: 'Login',
@@ -20,16 +21,16 @@ export function LoginPage() {
         }}
       />
 
-      <YStack f={1} p="$5">
-        <H2 ta="center">Welcome Back</H2>
+      <H2 ta="center" col="$purple10">
+        Welcome Back
+      </H2>
 
-        <BaseButton preset="primary" onPress={onPress}>
-          <BaseButton.Icon>
-            <Feather name="log-in" />
-          </BaseButton.Icon>
-          <BaseButton.Text>Login</BaseButton.Text>
-        </BaseButton>
-      </YStack>
-    </SafeAreaView>
+      <LoginForm />
+
+      <Paragraph ta="center" mt="$2">
+        Don't have an account?
+        <Link href="/register"> Register here</Link>
+      </Paragraph>
+    </LoginSAV>
   );
 }

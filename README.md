@@ -26,6 +26,7 @@ Bulletproof Expo 49 Template
 ## Todo
 
 - [ ] Drop web support
-- [ ] E2E tests with working examples
+- [ ] skeleton component with expo-linier-gradient
 - [ ] Zustand + MMKV with working examples
-- [ ]
+- [ ] react query + ky
+- [ ] E2E tests with working examples
