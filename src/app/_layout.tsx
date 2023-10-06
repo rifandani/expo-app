@@ -5,6 +5,7 @@ import { BaseFontProvider } from '#bootstrap/providers/BaseFontProvider';
 import { BaseNavigationThemeProvider } from '#bootstrap/providers/BaseNavigationThemeProvider';
 import { BaseTamaguiProvider } from '#bootstrap/providers/BaseTamaguiProvider';
 import { BaseToastProvider } from '#bootstrap/providers/BaseToastProvider';
+import { BaseQueryProvider } from '#bootstrap/providers/query/BaseQueryProvider';
 import { AnimatedSplashScreen } from '#bootstrap/splash-screen/AnimatedSplashScreen';
 
 // Instruct SplashScreen not to hide yet, we want to do this manually
@@ -19,7 +20,9 @@ export default function RootLayout() {
         <BaseTamaguiProvider>
           <BaseToastProvider>
             <BaseNavigationThemeProvider>
-              <Stack />
+              <BaseQueryProvider>
+                <Stack />
+              </BaseQueryProvider>
             </BaseNavigationThemeProvider>
           </BaseToastProvider>
         </BaseTamaguiProvider>

@@ -8,6 +8,7 @@
       "#assets/*": ["src/assets/*"],
       "#home/*": ["src/modules/home/*"],
       "#auth/*": ["src/modules/auth/*"],
+      "#user/*": ["src/modules/user/*"],
       "#playground/*": ["src/modules/playground/*"],
       "#shared/*": ["src/modules/shared/*"]
     }

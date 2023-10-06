@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-import { loginApiResponseSchema } from '#auth/api/auth.schema';
+import { loginApiSuccessResponseSchema } from '#auth/api/auth.schema';
 import { userStateStorage, userStorageId } from '#shared/services/mmkv.service';
 
 export type UserStoreState = z.infer<typeof userStoreStateSchema>;
@@ -10,16 +10,15 @@ export type UserStore = z.infer<typeof userStoreSchema>;
 export type UserStoreLocalStorage = z.infer<typeof userStoreLocalStorageSchema>;
 
 const userStoreStateSchema = z.object({
-  user: loginApiResponseSchema.nullable(),
+  user: loginApiSuccessResponseSchema.nullable(),
 });
 const userStoreActionSchema = z.object({
-  setUser: z.function().args(loginApiResponseSchema).returns(z.void()),
+  setUser: z.function().args(loginApiSuccessResponseSchema).returns(z.void()),
   clearUser: z.function().args(z.void()).returns(z.void()),
 });
 export const userStoreSchema = userStoreStateSchema.merge(userStoreActionSchema);
 export const userStoreLocalStorageSchema = z.object({
   state: userStoreStateSchema,
-  version: z.number(),
 });
 
 /**

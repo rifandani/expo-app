@@ -1,16 +1,16 @@
 import { z } from 'zod';
 
-export const resourceParamsSchema = z.object({
+export const resourceParamsApiRequestSchema = z.object({
   limit: z.number().optional(),
   skip: z.number().optional(),
   select: z.string().optional(),
 });
 
-export const resourceListSchema = z.object({
+export const resourceListApiRequestSchema = z.object({
   total: z.number(),
   skip: z.number(),
   limit: z.number(),
 });
 
-export type ResourceParamsSchema = z.infer<typeof resourceParamsSchema>;
-export type ResourceListSchema = z.infer<typeof resourceListSchema>;
+export type ResourceParamsApiRequest = z.infer<typeof resourceParamsApiRequestSchema>;
+export type ResourceListApiRequest = z.infer<typeof resourceListApiRequestSchema>;

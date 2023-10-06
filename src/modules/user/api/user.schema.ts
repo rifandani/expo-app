@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const userApiSuccessResponseSchema = z.object({
+export const userSchema = z.object({
   id: z.number(),
   firstName: z.string(),
   lastName: z.string(),
@@ -20,4 +20,11 @@ export const userApiSuccessResponseSchema = z.object({
   // ... and a lot more
 });
 
-export type UserApiSuccessResponseSchema = z.infer<typeof userApiSuccessResponseSchema>;
+export const getUserApiRequestSchema = z.object({
+  id: z.number(),
+});
+export const getUserApiResponseSchema = userSchema;
+
+export type User = z.infer<typeof userSchema>;
+export type GetUserApiRequest = z.infer<typeof getUserApiRequestSchema>;
+export type GetUserApiResponse = z.infer<typeof getUserApiResponseSchema>;
