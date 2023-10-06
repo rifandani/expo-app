@@ -1,5 +1,5 @@
 import { deepReadObject } from '@rifandani/nxact-yutiriti';
-import React from 'react';
+import React, { Children } from 'react';
 import { ZodError } from 'zod';
 import { FromZodErrorOptions, fromZodError } from 'zod-validation-error';
 
@@ -139,3 +139,8 @@ export const removeLeadingWhitespace = (value?: string) => {
 export function simplifyZodError<T>(error: ZodError<T>, options?: FromZodErrorOptions) {
   return { message: fromZodError(error, options).message };
 }
+
+/**
+ * Does a React component have exactly 0 children?
+ */
+export const isEmptyChildren = (children: any): boolean => Children.count(children) === 0;
