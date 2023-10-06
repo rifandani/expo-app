@@ -55,7 +55,7 @@ export const presetVariantBg = {
 /**
  * includes `bg`, `color`, `pressStyle.bg`, `pressStyle.borderColor`
  */
-export const presetVariantButton = {
+export const buttonVariants = {
   preset: {
     default: {}, // unstyled
     outlined: {
@@ -131,6 +131,14 @@ export const presetVariantButton = {
         bg: '$blue6',
         borderColor: '$borderColorPress',
       },
+    },
+  },
+  disabled: {
+    true: {
+      pointerEvents: 'none',
+      bg: '$background',
+      bc: '$borderColor',
+      color: '$color',
     },
   },
 } as const;

@@ -1,10 +1,10 @@
 import { Button, styled } from 'tamagui';
 
-import { presetVariantButton } from '#shared/constants/theme.constant';
+import { buttonVariants } from '#shared/constants/theme.constant';
 
 export const BaseButton = styled(Button, {
   name: 'BaseButton',
-  variants: presetVariantButton,
+  variants: buttonVariants,
   defaultVariants: {
     preset: 'default',
   },

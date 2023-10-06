@@ -4,13 +4,11 @@ import { Button, H1, Paragraph, YStack } from 'tamagui';
 
 import { useCheckAuth } from '#auth/hooks/useCheckAuth/useCheckAuth.hook';
 import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
-import { envSchema } from '#shared/api/env.schema';
 import { BaseSpinner } from '#shared/components/spinner/BaseSpinner';
 
 export function HomePage() {
   const [authed] = useCheckAuth();
   const { clearUser } = useUserStore();
-  const env = envSchema.parse(process.env);
 
   const onClickLogout = () => {
     clearUser();
@@ -34,7 +32,6 @@ export function HomePage() {
 
       <YStack f={1}>
         <H1>Home Page</H1>
-        <Paragraph>PUBLIC ENV: {JSON.stringify(env, null, 2)}</Paragraph>
 
         <Button bc="$blue1" color="$blue10" onPress={onClickLogout}>
           <Button.Icon>
