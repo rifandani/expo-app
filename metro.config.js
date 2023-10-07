@@ -9,5 +9,7 @@ const config = getDefaultConfig(__dirname);
 // Expo 49 issue: default metro config needs to include "mjs"
 // https://github.com/expo/expo/issues/23180
 config.resolver.sourceExts.push('mjs');
+// .cjs needed for typesafe-i18n
+config.resolver.sourceExts.push('cjs');
 
 module.exports = config;

@@ -4,8 +4,9 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "#bootstrap/*": ["src/bootstrap/*"],
       "#assets/*": ["src/assets/*"],
+      "#bootstrap/*": ["src/bootstrap/*"],
+      "#i18n/*": ["src/i18n/*"],
       "#home/*": ["src/modules/home/*"],
       "#auth/*": ["src/modules/auth/*"],
       "#user/*": ["src/modules/user/*"],

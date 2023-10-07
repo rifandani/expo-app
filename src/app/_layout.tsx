@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { BaseFontProvider } from '#bootstrap/providers/BaseFontProvider';
+import { BaseI18nProvider } from '#bootstrap/providers/BaseI18nProvider';
 import { BaseNavigationThemeProvider } from '#bootstrap/providers/BaseNavigationThemeProvider';
 import { BaseTamaguiProvider } from '#bootstrap/providers/BaseTamaguiProvider';
 import { BaseToastProvider } from '#bootstrap/providers/BaseToastProvider';
@@ -17,15 +18,17 @@ export default function RootLayout() {
   return (
     <AnimatedSplashScreen>
       <BaseFontProvider>
-        <BaseTamaguiProvider>
-          <BaseToastProvider>
-            <BaseNavigationThemeProvider>
-              <BaseQueryProvider>
-                <Stack />
-              </BaseQueryProvider>
-            </BaseNavigationThemeProvider>
-          </BaseToastProvider>
-        </BaseTamaguiProvider>
+        <BaseI18nProvider>
+          <BaseTamaguiProvider>
+            <BaseToastProvider>
+              <BaseNavigationThemeProvider>
+                <BaseQueryProvider>
+                  <Stack />
+                </BaseQueryProvider>
+              </BaseNavigationThemeProvider>
+            </BaseToastProvider>
+          </BaseTamaguiProvider>
+        </BaseI18nProvider>
       </BaseFontProvider>
     </AnimatedSplashScreen>
   );

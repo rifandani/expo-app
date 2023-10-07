@@ -5,7 +5,8 @@
       "tsconfigPaths": true
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-localization"
     ],
     "owner": "rifandani",
     "name": "Expo App",
