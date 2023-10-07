@@ -2,6 +2,7 @@ import { useLocales } from 'expo-localization';
 import { useFocusEffect } from 'expo-router';
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
+import '#bootstrap/polyfills/Intl';
 import TypesafeI18n from '#i18n/i18n-react';
 import { Locales } from '#i18n/i18n-types';
 import { isLocale } from '#i18n/i18n-util';
