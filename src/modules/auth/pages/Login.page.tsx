@@ -9,6 +9,7 @@ const LoginSAV = styled(SafeAreaView, {
   f: 1,
   p: '$5',
   jc: 'center',
+  bg: 'white',
 });
 
 export function LoginPage() {

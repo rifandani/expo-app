@@ -14,7 +14,7 @@ export function HomePage() {
         }}
       />
 
-      <YStack f={1}>
+      <YStack f={1} bg="white">
         <H1>Home Page</H1>
       </YStack>
     </CheckAuth>
