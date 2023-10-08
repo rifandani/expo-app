@@ -1,33 +1,24 @@
 import '#bootstrap/polyfills/Intl';
-import { getLocales } from 'expo-localization';
-import { useFocusEffect } from 'expo-router';
-import { PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { AppState } from 'react-native';
-import { LocaleDetector } from 'typesafe-i18n/detectors';
 
 import TypesafeI18n, { useI18nContext } from '#i18n/i18n-react';
 import { Locales } from '#i18n/i18n-types';
-import { baseLocale, detectLocale, isLocale } from '#i18n/i18n-util';
 import { loadLocale } from '#i18n/i18n-util.sync';
-
-const systemSettingsDetector: LocaleDetector = () =>
-  getLocales().map((_locale) => _locale.languageTag);
+import { useLocale } from '#shared/hooks/useLocale.hook';
 
 function AppStateLanguageListener({ children }: PropsWithChildren) {
-  const appState = useRef(AppState.currentState);
   const { setLocale } = useI18nContext();
+  const locale = useLocale();
+  const appState = useRef(AppState.currentState);
 
-  const recalibrateLocale = useCallback(() => {
-    const locale = systemSettingsDetector().find(isLocale) ?? baseLocale;
-    loadLocale(locale);
-    setLocale(locale);
-  }, [setLocale]);
-
+  // Detect when user changing system language by listening to AppState and change the locale based on it
   useEffect(() => {
     const subscription = AppState.addEventListener('change', (nextAppState) => {
       // App has come to the foreground
       if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-        recalibrateLocale();
+        loadLocale(locale);
+        setLocale(locale);
       }
 
       appState.current = nextAppState;
@@ -36,22 +27,20 @@ function AppStateLanguageListener({ children }: PropsWithChildren) {
     return () => {
       subscription.remove();
     };
-  }, [recalibrateLocale]);
+  }, [locale, setLocale]);
 
   return children;
 }
 
 export function BaseI18nProvider({ children }: PropsWithChildren) {
+  const locale = useLocale();
   const [localeLoaded, setLocaleLoaded] = useState<Locales | null>(null);
 
   // Load and update locales for the first time
-  useFocusEffect(
-    useCallback(() => {
-      const detectedLocale = detectLocale(systemSettingsDetector);
-      loadLocale(detectedLocale);
-      setLocaleLoaded(detectedLocale);
-    }, [])
-  );
+  useEffect(() => {
+    loadLocale(locale);
+    setLocaleLoaded(locale);
+  }, [locale]);
 
   if (!localeLoaded) return null;
 

@@ -43,6 +43,9 @@ function getScrollableNode(ref: RefObject<ScrollableWrapper>) {
   }
 }
 
+/**
+ * hooks to automatically scroll screen to top
+ */
 export function useScrollToTop(ref: RefObject<ScrollableWrapper>, offset: number = 0) {
   const navigation = useNavigation();
   const route = useRoute();
