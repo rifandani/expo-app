@@ -17,19 +17,19 @@ SplashScreen.preventAutoHideAsync().catch(() => {
 export default function RootLayout() {
   return (
     <AnimatedSplashScreen>
-      <BaseFontProvider>
-        <BaseI18nProvider>
+      <BaseQueryProvider>
+        <BaseFontProvider>
           <BaseTamaguiProvider>
-            <BaseToastProvider>
-              <BaseNavigationThemeProvider>
-                <BaseQueryProvider>
+            <BaseI18nProvider>
+              <BaseToastProvider>
+                <BaseNavigationThemeProvider>
                   <Stack />
-                </BaseQueryProvider>
-              </BaseNavigationThemeProvider>
-            </BaseToastProvider>
+                </BaseNavigationThemeProvider>
+              </BaseToastProvider>
+            </BaseI18nProvider>
           </BaseTamaguiProvider>
-        </BaseI18nProvider>
-      </BaseFontProvider>
+        </BaseFontProvider>
+      </BaseQueryProvider>
     </AnimatedSplashScreen>
   );
 }

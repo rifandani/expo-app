@@ -6,8 +6,8 @@ import type { Locales, Translations } from './i18n-types'
 import { loadedFormatters, loadedLocales, locales } from './i18n-util'
 
 const localeTranslationLoaders = {
-	en: () => import('./en'),
-	id: () => import('./id'),
+	'en-US': () => import('./en-US'),
+	'id-ID': () => import('./id-ID'),
 }
 
 const updateDictionary = (locale: Locales, dictionary: Partial<Translations>): Translations =>

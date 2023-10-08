@@ -8,7 +8,12 @@ type WrapTranslationProps = {
 /**
  * create a component that handles the translated message
  *
- * NOTE: the translation should be something like this `Click <>infix<>, to create project`
+ * @example
+ *
+ * <WrapTranslation
+ *   message={LL.auth.registerHere()}
+ *   Component={(infix) => <Link href="/register"> {infix}</Link>}
+ * />
  */
 export function WrapTranslation({ message, Component }: WrapTranslationProps) {
   // define a split character, in this case '<>'
@@ -24,7 +29,7 @@ export function WrapTranslation({ message, Component }: WrapTranslationProps) {
     <>
       {prefix}
       {Component(infix)}
-      {prefix}
+      {postfix}
     </>
   );
 }

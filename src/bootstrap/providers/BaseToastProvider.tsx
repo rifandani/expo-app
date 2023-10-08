@@ -16,12 +16,13 @@ export function BaseToastProvider({ children, ...rest }: ToastProviderProps) {
       swipeDirection={SWIPE_DIRECTION}
       duration={DURATION}
       burntOptions={{ from: 'bottom' }} // only on iOS
-      native={
-        [
-          /* uncomment the next line to do native toasts on mobile. NOTE: it'll require you making a dev build and won't work with Expo Go */
-          // 'mobile'
-        ]
-      }
+      native={[
+        /*
+         * uncomment the next line to do native toasts on mobile
+         * only works in dev build and won't work with Expo Go
+         */
+        'mobile',
+      ]}
       {...rest}>
       {children}
 

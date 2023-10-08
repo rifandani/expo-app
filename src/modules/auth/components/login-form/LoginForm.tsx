@@ -11,11 +11,13 @@ import { authApi } from '#auth/api/auth.api';
 import { loginSchema } from '#auth/api/auth.schema';
 import { loginFormDefaultValues } from '#auth/constants/login.constant';
 import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
+import { useI18nContext } from '#i18n/i18n-react';
 import { BaseButton } from '#shared/components/button/BaseButton';
 import { BaseSpinner } from '#shared/components/spinner/BaseSpinner';
 import { ToastCustomData } from '#shared/components/toast/BaseToast';
 
 function RememberMeCheckbox() {
+  const { LL } = useI18nContext();
   const [state, setState] = useState({ rememberMe: false });
 
   const onCheckedChange = (checked: CheckedState) => {
@@ -30,12 +32,13 @@ function RememberMeCheckbox() {
         </Checkbox.Indicator>
       </Checkbox>
 
-      <Label htmlFor="rememberMe">Remember me</Label>
+      <Label htmlFor="rememberMe">{LL.forms.rememberMe()}</Label>
     </XStack>
   );
 }
 
 export function LoginForm() {
+  const { LL } = useI18nContext();
   const router = useRouter();
   const toast = useToastController();
   const { setUser } = useUserStore();
@@ -82,7 +85,7 @@ export function LoginForm() {
   return (
     <YStack mt="$5">
       <Label htmlFor="username" mb="$2">
-        Username
+        {LL.forms.username()}
       </Label>
       <Controller
         name="username"
@@ -93,7 +96,7 @@ export function LoginForm() {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <Input
-            placeholder="Your username..."
+            placeholder={LL.forms.usernamePlaceholder()}
             value={value}
             onBlur={onBlur}
             onChangeText={onChange}
@@ -101,8 +104,9 @@ export function LoginForm() {
         )}
       />
       {errors.username ? <Paragraph color="$red10">{errors.username.message}</Paragraph> : null}
+
       <Label htmlFor="password" my="$2">
-        Password
+        {LL.forms.password()}
       </Label>
       <Controller
         name="password"
@@ -114,7 +118,7 @@ export function LoginForm() {
         render={({ field: { onChange, onBlur, value } }) => (
           <Input
             secureTextEntry
-            placeholder="Your password..."
+            placeholder={LL.forms.passwordPlaceholder()}
             value={value}
             onBlur={onBlur}
             onChangeText={onChange}
@@ -132,7 +136,7 @@ export function LoginForm() {
         }
         disabled={isSubmitting || !isValid}
         onPress={onSubmit}>
-        Login (0lelplR)
+        {isSubmitting ? LL.forms.loginLoading() : LL.forms.login()} (0lelplR)
       </BaseButton>
     </YStack>
   );

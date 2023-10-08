@@ -3,6 +3,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { H2, Paragraph, styled } from 'tamagui';
 
 import { LoginForm } from '#auth/components/login-form/LoginForm';
+import { useI18nContext } from '#i18n/i18n-react';
+import { WrapTranslation } from '#shared/components/i18n/WrapTranslation';
 
 const LoginSAV = styled(SafeAreaView, {
   name: 'LoginSAV',
@@ -13,6 +15,8 @@ const LoginSAV = styled(SafeAreaView, {
 });
 
 export function LoginPage() {
+  const { LL } = useI18nContext();
+
   return (
     <LoginSAV>
       <Stack.Screen
@@ -23,14 +27,16 @@ export function LoginPage() {
       />
 
       <H2 ta="center" col="$purple10">
-        Welcome Back
+        {LL.auth.welcome()}
       </H2>
 
       <LoginForm />
 
       <Paragraph ta="center" mt="$2">
-        Don't have an account?
-        <Link href="/register"> Register here</Link>
+        <WrapTranslation
+          message={LL.auth.registerHere()}
+          Component={(infix) => <Link href="/register"> {infix}</Link>}
+        />
       </Paragraph>
     </LoginSAV>
   );

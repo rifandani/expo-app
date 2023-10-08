@@ -3,11 +3,11 @@
 import type { BaseTranslation as BaseTranslationType, LocalizedString, RequiredParams } from 'typesafe-i18n'
 
 export type BaseTranslation = BaseTranslationType
-export type BaseLocale = 'en'
+export type BaseLocale = 'en-US'
 
 export type Locales =
-	| 'en'
-	| 'id'
+	| 'en-US'
+	| 'id-ID'
 
 export type Translation = RootTranslation
 
@@ -131,6 +131,10 @@ type RootTranslation = {
 		 * W​h​a​t​ ​s​h​o​u​l​d​ ​y​o​u​ ​d​o​ ​n​e​x​t​.​.​.
 		 */
 		todoPlaceholder: string
+		/**
+		 * R​e​m​e​m​b​e​r​ ​m​e
+		 */
+		rememberMe: string
 	}
 	common: {
 		/**
@@ -354,6 +358,10 @@ export type TranslationFunctions = {
 		 * What should you do next...
 		 */
 		todoPlaceholder: () => LocalizedString
+		/**
+		 * Remember me
+		 */
+		rememberMe: () => LocalizedString
 	}
 	common: {
 		/**

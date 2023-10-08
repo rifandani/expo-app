@@ -34,6 +34,7 @@ const en = {
     remove: 'Remove {icon:string}',
     limit: 'Limit',
     todoPlaceholder: 'What should you do next...',
+    rememberMe: 'Remember me',
   },
   common: {
     loading: 'Loading...',

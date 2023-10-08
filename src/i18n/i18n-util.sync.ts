@@ -5,12 +5,12 @@ import { initFormatters } from './formatters'
 import type { Locales, Translations } from './i18n-types'
 import { loadedFormatters, loadedLocales, locales } from './i18n-util'
 
-import en from './en'
-import id from './id'
+import en_US from './en-US'
+import id_ID from './id-ID'
 
 const localeTranslations = {
-	en,
-	id,
+	'en-US': en_US,
+	'id-ID': id_ID,
 }
 
 export const loadLocale = (locale: Locales): void => {

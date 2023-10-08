@@ -2,7 +2,7 @@ import type { Translation } from '../i18n-types';
 
 const id = {
   auth: {
-    welcome: 'Selamat Datang Kembali',
+    welcome: 'Selamat Datang Kembalii',
     logoutUsername: 'Keluar ({username})',
     registerHere: 'Tidak punya akun? <>Daftar disini<>',
     notFound404: '404: Tidak Ditemukan',
@@ -34,6 +34,7 @@ const id = {
     remove: 'Hapus {icon}',
     limit: 'Batas',
     todoPlaceholder: 'Apa yang akan anda lakukan selanjutnya...',
+    rememberMe: 'Ingat aku',
   },
   common: {
     loading: 'Menunggu...',
