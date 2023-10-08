@@ -2,3 +2,4 @@
 src/assets
 node_modules
 .gitignore
+commitlint.config.js

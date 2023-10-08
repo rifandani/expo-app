@@ -24,4 +24,5 @@ Bulletproof Expo 49 Template
 - [ ] skeleton component with expo-linier-gradient
 - [ ] support tabs consists of Home and Todo screens
 - [ ] Drop web support
+- [ ] supabase in different branches
 - [ ] E2E tests using `maestro` with working examples
