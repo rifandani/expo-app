@@ -16,7 +16,7 @@ import { useGetUser } from '#user/hooks/useGetUser.hook';
 
 export function ProfilePage() {
   const { LL } = useI18nContext();
-  const { user } = useAppStore();
+  const user = useAppStore((state) => state.user);
   const { data } = useGetUser({
     // `user` should not be `null`, we already check it in `CheckAuth` component
     id: user!.id,

@@ -10,7 +10,7 @@ import { useAppStore } from '#shared/hooks/useAppStore.hook';
  */
 export function BaseTamaguiProvider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) {
   const scheme = useColorScheme();
-  const { theme } = useAppStore();
+  const theme = useAppStore((state) => state.theme);
 
   return (
     <TamaguiProvider

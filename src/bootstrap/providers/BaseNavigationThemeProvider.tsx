@@ -12,7 +12,7 @@ import { useAppStore } from '#shared/hooks/useAppStore.hook';
  */
 export function BaseNavigationThemeProvider({ children }: PropsWithChildren) {
   const scheme = useColorScheme();
-  const { theme } = useAppStore();
+  const theme = useAppStore((state) => state.theme);
 
   const themeMapper = () => {
     if (theme === 'system') {

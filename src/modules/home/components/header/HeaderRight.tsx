@@ -12,7 +12,7 @@ import { HeaderButtonProps } from '#shared/types/navigation.type';
 export function HeaderRight(_props: HeaderButtonProps) {
   const $red10Dark = getTokenValue('$red10Dark');
   const [state, setState] = useState<BaseSheetState>({ open: false, position: 0 });
-  const { resetUser } = useAppStore();
+  const resetUser = useAppStore((state) => state.resetUser);
   const router = useRouter();
 
   const onPressMore = () => {

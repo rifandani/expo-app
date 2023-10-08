@@ -9,9 +9,10 @@ import { AppStoreState, useAppStore } from '#shared/hooks/useAppStore.hook';
 import { ProfileListItem } from '#user/components/profile/ProfileListItem';
 
 export function ThemeChanger() {
-  const { LL } = useI18nContext();
-  const { theme, setTheme } = useAppStore();
+  const theme = useAppStore((state) => state.theme);
+  const setTheme = useAppStore((state) => state.setTheme);
   const [state, setState] = useState<BaseSheetState>({ open: false, position: 0 });
+  const { LL } = useI18nContext();
 
   const onPressOpenSheet = () => {
     setState({ ...state, open: true });

@@ -34,7 +34,8 @@ export const appStoreStateDefaultValues: AppStoreState = {
  * @example
  *
  * ```tsx
- * const { user, lang, reset, setUser, setLang } = useAppStore()
+ * const user = useAppStore(state => state.user)
+ * const setUser = useAppStore(state => state.setUser)
  * ```
  */
 export const useAppStore = create<AppStore>()(

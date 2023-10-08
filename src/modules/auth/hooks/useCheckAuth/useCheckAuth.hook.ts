@@ -15,7 +15,7 @@ import { useAppStore } from '#shared/hooks/useAppStore.hook';
 export function useCheckAuth() {
   const { push } = useRouter();
   const pathname = usePathname();
-  const { user } = useAppStore();
+  const user = useAppStore((state) => state.user);
   const [appReady, setAppReady] = useState(false);
 
   useFocusEffect(

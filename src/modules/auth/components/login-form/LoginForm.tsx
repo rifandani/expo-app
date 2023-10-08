@@ -41,7 +41,8 @@ export function LoginForm() {
   const { LL } = useI18nContext();
   const router = useRouter();
   const toast = useToastController();
-  const { setUser } = useAppStore();
+  const setUser = useAppStore((state) => state.setUser);
+
   const {
     control,
     handleSubmit,
