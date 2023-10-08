@@ -1,54 +1,63 @@
 import '#bootstrap/polyfills/Intl';
-import { useLocales } from 'expo-localization';
-import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
+import { getLocales } from 'expo-localization';
+import { useFocusEffect } from 'expo-router';
+import { PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react';
 import { AppState } from 'react-native';
+import { LocaleDetector } from 'typesafe-i18n/detectors';
 
-import TypesafeI18n from '#i18n/i18n-react';
+import TypesafeI18n, { useI18nContext } from '#i18n/i18n-react';
 import { Locales } from '#i18n/i18n-types';
-import { isLocale } from '#i18n/i18n-util';
+import { baseLocale, detectLocale, isLocale } from '#i18n/i18n-util';
 import { loadLocale } from '#i18n/i18n-util.sync';
 
-export function BaseI18nProvider({ children }: PropsWithChildren) {
-  const [localeLoaded, setLocaleLoaded] = useState<Locales | null>(null);
+const systemSettingsDetector: LocaleDetector = () =>
+  getLocales().map((_locale) => _locale.languageTag);
+
+function AppStateLanguageListener({ children }: PropsWithChildren) {
   const appState = useRef(AppState.currentState);
+  const { setLocale } = useI18nContext();
 
-  // Get default locale from device settings
-  const locales = useLocales();
-  const locale = useMemo(
-    () => locales.map((_locale) => _locale.languageTag).find(isLocale) ?? 'en-US',
-    [locales]
-  );
-  console.log('🚀 ~ file: BaseI18nProvider.tsx:20 ~ BaseI18nProvider ~ localeLoaded:', {
-    localeLoaded,
-  });
-
-  // Load and update locales
-  useEffect(() => {
-    console.log('🚀 ~ file: BaseI18nProvider.tsx:29 ~ loadLocaleAsync ~ locale:', locale);
+  const recalibrateLocale = useCallback(() => {
+    const locale = systemSettingsDetector().find(isLocale) ?? baseLocale;
     loadLocale(locale);
-    setLocaleLoaded(locale);
-  }, [locale]);
+    setLocale(locale);
+  }, [setLocale]);
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', (nextAppState) => {
-      console.log(
-        '🚀 ~ file: BaseI18nProvider.tsx:34 ~ subscription ~ nextAppState:',
-        nextAppState
-      );
+      // App has come to the foreground
       if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-        console.log('App has come to the foreground!');
+        recalibrateLocale();
       }
 
       appState.current = nextAppState;
-      // setAppStateVisible(appState.current);
     });
 
     return () => {
       subscription.remove();
     };
-  }, []);
+  }, [recalibrateLocale]);
+
+  return children;
+}
+
+export function BaseI18nProvider({ children }: PropsWithChildren) {
+  const [localeLoaded, setLocaleLoaded] = useState<Locales | null>(null);
+
+  // Load and update locales for the first time
+  useFocusEffect(
+    useCallback(() => {
+      const detectedLocale = detectLocale(systemSettingsDetector);
+      loadLocale(detectedLocale);
+      setLocaleLoaded(detectedLocale);
+    }, [])
+  );
 
   if (!localeLoaded) return null;
 
-  return <TypesafeI18n locale={localeLoaded}>{children}</TypesafeI18n>;
+  return (
+    <TypesafeI18n locale={localeLoaded}>
+      <AppStateLanguageListener>{children}</AppStateLanguageListener>
+    </TypesafeI18n>
+  );
 }

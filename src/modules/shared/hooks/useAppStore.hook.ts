@@ -10,20 +10,19 @@ type AppStore = z.infer<typeof appStoreSchema>;
 
 const appStoreStateSchema = z.object({
   user: loginApiSuccessResponseSchema.nullable(),
-  lang: z.enum(['en-US', 'id-ID']),
 });
-const userStoreActionSchema = z.object({
+const appStoreActionSchema = z.object({
   reset: z.function().args(z.void()).returns(z.void()),
   resetUser: z.function().args(z.void()).returns(z.void()),
-  resetLang: z.function().args(z.void()).returns(z.void()),
   setUser: z.function().args(loginApiSuccessResponseSchema).returns(z.void()),
-  setLang: z.function().args(appStoreStateSchema.shape.lang).returns(z.void()),
 });
-const appStoreSchema = appStoreStateSchema.merge(userStoreActionSchema);
+const appStoreSchema = appStoreStateSchema.merge(appStoreActionSchema);
 
+/**
+ * app store state default values
+ */
 export const appStoreStateDefaultValues: AppStoreState = {
   user: null,
-  lang: 'en-US',
 };
 
 /**
@@ -39,21 +38,14 @@ export const useAppStore = create<AppStore>()(
   persist(
     (set) => ({
       user: appStoreStateDefaultValues.user,
-      lang: appStoreStateDefaultValues.lang,
       reset: () => {
         set(appStoreStateDefaultValues);
       },
       resetUser: () => {
         set({ user: appStoreStateDefaultValues.user });
       },
-      resetLang: () => {
-        set({ lang: appStoreStateDefaultValues.lang });
-      },
       setUser: (user) => {
         set({ user });
-      },
-      setLang: (lang) => {
-        set({ lang });
       },
     }),
     {

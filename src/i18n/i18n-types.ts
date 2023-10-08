@@ -41,6 +41,10 @@ type RootTranslation = {
 		 * @param {'true' | 'false'} isLoggedIn
 		 */
 		backTo: RequiredParams<`isLoggedIn|{true:${string}, false:${string}}`>
+		/**
+		 * C​h​e​c​k​i​n​g​ ​y​o​u​r​ ​a​u​t​h​e​n​t​i​c​a​t​i​o​n​.​.​.
+		 */
+		checkingAuth: string
 	}
 	home: {
 		/**
@@ -272,6 +276,10 @@ export type TranslationFunctions = {
 		 * Go back to {isLoggedIn|{true: home, false: login}}
 		 */
 		backTo: (arg: { isLoggedIn: 'true' | 'false' }) => LocalizedString
+		/**
+		 * Checking your authentication...
+		 */
+		checkingAuth: () => LocalizedString
 	}
 	home: {
 		/**

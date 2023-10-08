@@ -8,6 +8,7 @@ const en = {
     notFound404: '404: Not Found',
     gone: "It's gone",
     backTo: 'Go back to {isLoggedIn|{true: home, false: login}}',
+    checkingAuth: 'Checking your authentication...',
   },
   home: {
     title: 'Svelte App using:',

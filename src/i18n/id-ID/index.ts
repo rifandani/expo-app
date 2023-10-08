@@ -8,6 +8,7 @@ const id = {
     notFound404: '404: Tidak Ditemukan',
     gone: 'Halaman Kosong',
     backTo: 'Kembali ke {isLoggedIn|{true: beranda, false: login}}',
+    checkingAuth: 'Memeriksa autentikasi anda...',
   },
   home: {
     title: 'Aplikasi Svelte menggunakan:',
