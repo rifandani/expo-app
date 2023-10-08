@@ -1,18 +1,18 @@
 import { MMKV } from 'react-native-mmkv';
 import type { StateStorage } from 'zustand/middleware';
 
-export const userStorageId = 'app-user' as const;
-const userStorage = new MMKV({ id: userStorageId });
+export const appStorageId = 'app-storage' as const;
+const appStorage = new MMKV({ id: appStorageId });
 
-export const userStateStorage: StateStorage = {
+export const appStateStorage: StateStorage = {
   setItem: (name, value) => {
-    return userStorage.set(name, value);
+    return appStorage.set(name, value);
   },
   getItem: (name) => {
-    const value = userStorage.getString(name);
+    const value = appStorage.getString(name);
     return value ?? null;
   },
   removeItem: (name) => {
-    return userStorage.delete(name);
+    return appStorage.delete(name);
   },
 };

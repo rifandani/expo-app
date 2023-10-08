@@ -2,7 +2,7 @@ import { useToastController } from '@tamagui/toast';
 import { useFocusEffect, usePathname, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 
-import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
+import { useAppStore } from '#shared/hooks/useAppStore.hook';
 
 /**
  * Side effect to check user authentication, wether they're logged in or not
@@ -17,7 +17,7 @@ export function useCheckAuth() {
   // const [t] = useI18n();
   const { push } = useRouter();
   const pathname = usePathname();
-  const { user } = useUserStore();
+  const { user } = useAppStore();
   const toast = useToastController();
   const [appReady, setAppReady] = useState(false);
 

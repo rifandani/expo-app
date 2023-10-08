@@ -5,11 +5,11 @@ import { Stack } from 'expo-router';
 import { ComponentPropsWithoutRef } from 'react';
 import { H6, ListItem, Paragraph, Separator, XStack, YStack } from 'tamagui';
 
-import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
 import { HeaderLeft } from '#home/components/header/HeaderLeft';
 import { BaseButton } from '#shared/components/button/BaseButton';
 import { CheckAuth } from '#shared/components/templates/auth/CheckAuth';
 import { blurhash } from '#shared/constants/global.constant';
+import { useAppStore } from '#shared/hooks/useAppStore.hook';
 import { useGetUser } from '#user/hooks/useGetUser.hook';
 
 function Item(props: ComponentPropsWithoutRef<typeof ListItem>) {
@@ -25,7 +25,7 @@ function Item(props: ComponentPropsWithoutRef<typeof ListItem>) {
 }
 
 export function ProfilePage() {
-  const { user } = useUserStore();
+  const { user } = useAppStore();
   const { data } = useGetUser({
     // `user` should not be `null`, we already check it in `CheckAuth` component
     id: user!.id,

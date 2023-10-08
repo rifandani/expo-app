@@ -10,11 +10,11 @@ import { fromZodError } from 'zod-validation-error';
 import { authApi } from '#auth/api/auth.api';
 import { loginSchema } from '#auth/api/auth.schema';
 import { loginFormDefaultValues } from '#auth/constants/login.constant';
-import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
 import { useI18nContext } from '#i18n/i18n-react';
 import { BaseButton } from '#shared/components/button/BaseButton';
 import { BaseSpinner } from '#shared/components/spinner/BaseSpinner';
 import { ToastCustomData } from '#shared/components/toast/BaseToast';
+import { useAppStore } from '#shared/hooks/useAppStore.hook';
 
 function RememberMeCheckbox() {
   const { LL } = useI18nContext();
@@ -41,7 +41,7 @@ export function LoginForm() {
   const { LL } = useI18nContext();
   const router = useRouter();
   const toast = useToastController();
-  const { setUser } = useUserStore();
+  const { setUser } = useAppStore();
   const {
     control,
     handleSubmit,

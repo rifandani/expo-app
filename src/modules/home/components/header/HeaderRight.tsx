@@ -3,16 +3,16 @@ import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ListItem, Separator, YGroup, getTokenValue } from 'tamagui';
 
-import { useUserStore } from '#auth/hooks/useUserStore/useUserStore.hook';
 import { BaseButton } from '#shared/components/button/BaseButton';
 import { BaseSheet } from '#shared/components/sheet/BaseSheet';
 import { BaseSheetState } from '#shared/components/sheet/types';
+import { useAppStore } from '#shared/hooks/useAppStore.hook';
 import { HeaderButtonProps } from '#shared/types/navigation.type';
 
 export function HeaderRight(_props: HeaderButtonProps) {
   const $red10Dark = getTokenValue('$red10Dark');
   const [state, setState] = useState<BaseSheetState>({ open: false, position: 0 });
-  const { clearUser } = useUserStore();
+  const { resetUser } = useAppStore();
   const router = useRouter();
 
   const onPressMore = () => {
@@ -24,7 +24,8 @@ export function HeaderRight(_props: HeaderButtonProps) {
   };
   const onPressLogout = () => {
     setState({ ...state, open: false });
-    clearUser();
+    resetUser();
+    router.push('/login');
   };
 
   return (
