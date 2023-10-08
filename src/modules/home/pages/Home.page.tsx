@@ -17,7 +17,7 @@ export function HomePage() {
         }}
       />
 
-      <YStack f={1} bg="white">
+      <YStack f={1}>
         <H1>{LL.home.title()}</H1>
       </YStack>
     </CheckAuth>

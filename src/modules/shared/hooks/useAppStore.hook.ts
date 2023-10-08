@@ -5,16 +5,18 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import { loginApiSuccessResponseSchema } from '#auth/api/auth.schema';
 import { appStateStorage, appStorageId } from '#shared/services/mmkv.service';
 
-type AppStoreState = z.infer<typeof appStoreStateSchema>;
+export type AppStoreState = z.infer<typeof appStoreStateSchema>;
 type AppStore = z.infer<typeof appStoreSchema>;
 
 const appStoreStateSchema = z.object({
   user: loginApiSuccessResponseSchema.nullable(),
+  theme: z.enum(['system', 'light', 'dark']),
 });
 const appStoreActionSchema = z.object({
   reset: z.function().args(z.void()).returns(z.void()),
   resetUser: z.function().args(z.void()).returns(z.void()),
   setUser: z.function().args(loginApiSuccessResponseSchema).returns(z.void()),
+  setTheme: z.function().args(appStoreStateSchema.shape.theme).returns(z.void()),
 });
 const appStoreSchema = appStoreStateSchema.merge(appStoreActionSchema);
 
@@ -23,6 +25,7 @@ const appStoreSchema = appStoreStateSchema.merge(appStoreActionSchema);
  */
 export const appStoreStateDefaultValues: AppStoreState = {
   user: null,
+  theme: 'system',
 };
 
 /**
@@ -38,6 +41,8 @@ export const useAppStore = create<AppStore>()(
   persist(
     (set) => ({
       user: appStoreStateDefaultValues.user,
+      theme: appStoreStateDefaultValues.theme,
+
       reset: () => {
         set(appStoreStateDefaultValues);
       },
@@ -46,6 +51,9 @@ export const useAppStore = create<AppStore>()(
       },
       setUser: (user) => {
         set({ user });
+      },
+      setTheme: (theme) => {
+        set({ theme });
       },
     }),
     {

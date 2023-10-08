@@ -21,7 +21,7 @@ Bulletproof Expo 49 Template
 
 ## Todo
 
-- [ ] Drop web support
-- [ ] install `expo-system-ui` to support `userInterfaceStyle` in `app.json`
 - [ ] skeleton component with expo-linier-gradient
+- [ ] support tabs consists of Home and Todo screens
+- [ ] Drop web support
 - [ ] E2E tests using `maestro` with working examples

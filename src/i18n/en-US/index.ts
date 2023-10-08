@@ -11,7 +11,7 @@ const en = {
     checkingAuth: 'Checking your authentication...',
   },
   home: {
-    title: 'Svelte App using:',
+    title: 'Expo App using:',
     sortBtn: 'Sort Buttons',
     clock: 'Clock',
     toggleClock: 'Toggle Clock',
@@ -21,6 +21,9 @@ const en = {
   },
   todo: {
     backTo: 'Go back to {target:string}',
+  },
+  user: {
+    editProfile: 'Edit Profile',
   },
   forms: {
     username: 'Username',
@@ -55,6 +58,10 @@ const en = {
     update: 'Update {icon:string}',
     remove: 'Remove {icon:string}',
     empty: 'Empty Data',
+    appVersion: 'App version',
+    system: 'System',
+    dark: 'Dark',
+    light: 'Light',
   },
   success: {
     action: '{module:string} successfully {action:string}',

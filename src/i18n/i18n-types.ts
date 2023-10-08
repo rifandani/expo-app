@@ -48,7 +48,7 @@ type RootTranslation = {
 	}
 	home: {
 		/**
-		 * S​v​e​l​t​e​ ​A​p​p​ ​u​s​i​n​g​:
+		 * E​x​p​o​ ​A​p​p​ ​u​s​i​n​g​:
 		 */
 		title: string
 		/**
@@ -82,6 +82,12 @@ type RootTranslation = {
 		 * @param {string} target
 		 */
 		backTo: RequiredParams<'target'>
+	}
+	user: {
+		/**
+		 * E​d​i​t​ ​P​r​o​f​i​l​e
+		 */
+		editProfile: string
 	}
 	forms: {
 		/**
@@ -221,6 +227,22 @@ type RootTranslation = {
 		 * E​m​p​t​y​ ​D​a​t​a
 		 */
 		empty: string
+		/**
+		 * A​p​p​ ​v​e​r​s​i​o​n
+		 */
+		appVersion: string
+		/**
+		 * S​y​s​t​e​m
+		 */
+		system: string
+		/**
+		 * D​a​r​k
+		 */
+		dark: string
+		/**
+		 * L​i​g​h​t
+		 */
+		light: string
 	}
 	success: {
 		/**
@@ -283,7 +305,7 @@ export type TranslationFunctions = {
 	}
 	home: {
 		/**
-		 * Svelte App using:
+		 * Expo App using:
 		 */
 		title: () => LocalizedString
 		/**
@@ -316,6 +338,12 @@ export type TranslationFunctions = {
 		 * Go back to {target}
 		 */
 		backTo: (arg: { target: string }) => LocalizedString
+	}
+	user: {
+		/**
+		 * Edit Profile
+		 */
+		editProfile: () => LocalizedString
 	}
 	forms: {
 		/**
@@ -440,6 +468,22 @@ export type TranslationFunctions = {
 		 * Empty Data
 		 */
 		empty: () => LocalizedString
+		/**
+		 * App version
+		 */
+		appVersion: () => LocalizedString
+		/**
+		 * System
+		 */
+		system: () => LocalizedString
+		/**
+		 * Dark
+		 */
+		dark: () => LocalizedString
+		/**
+		 * Light
+		 */
+		light: () => LocalizedString
 	}
 	success: {
 		/**

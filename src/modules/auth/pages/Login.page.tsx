@@ -11,7 +11,6 @@ const LoginSAV = styled(SafeAreaView, {
   f: 1,
   p: '$5',
   jc: 'center',
-  bg: 'white',
 });
 
 export function LoginPage() {
@@ -26,9 +25,7 @@ export function LoginPage() {
         }}
       />
 
-      <H2 ta="center" col="$purple10">
-        {LL.auth.welcome()}
-      </H2>
+      <H2 ta="center">{LL.auth.welcome()}</H2>
 
       <LoginForm />
 

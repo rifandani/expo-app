@@ -2,7 +2,7 @@ import type { Translation } from '../i18n-types';
 
 const id = {
   auth: {
-    welcome: 'Selamat Datang Kembalii',
+    welcome: 'Selamat Datang Kembali',
     logoutUsername: 'Keluar ({username})',
     registerHere: 'Tidak punya akun? <>Daftar disini<>',
     notFound404: '404: Tidak Ditemukan',
@@ -11,7 +11,7 @@ const id = {
     checkingAuth: 'Memeriksa autentikasi anda...',
   },
   home: {
-    title: 'Aplikasi Svelte menggunakan:',
+    title: 'Aplikasi Expo menggunakan:',
     sortBtn: 'Sortir Tombol',
     clock: 'Jam',
     toggleClock: 'Beralih Jam',
@@ -21,6 +21,9 @@ const id = {
   },
   todo: {
     backTo: 'Kembali ke {target}',
+  },
+  user: {
+    editProfile: 'Ubah Profil',
   },
   forms: {
     username: 'Username',
@@ -55,6 +58,10 @@ const id = {
     update: 'Ubah {icon}',
     remove: 'Hapus {icon}',
     empty: 'Tidak Ada Data',
+    appVersion: 'Versi aplikasi',
+    system: 'Sistem',
+    dark: 'Gelap',
+    light: 'Terang',
   },
   success: {
     action: '{module} berhasil {action}',

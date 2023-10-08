@@ -5,22 +5,22 @@ export const presetVariantColor = {
   preset: {
     default: {},
     primary: {
-      color: '$purple10',
+      color: '$purple11',
     },
     secondary: {
-      color: '$pink10',
+      color: '$pink11',
     },
     success: {
-      color: '$green10',
+      color: '$green11',
     },
     error: {
-      color: '$red10',
+      color: '$red11',
     },
     warning: {
-      color: '$yellow10',
+      color: '$yellow11',
     },
     info: {
-      color: '$blue10',
+      color: '$blue11',
     },
   },
 } as const;
@@ -80,7 +80,7 @@ export const buttonVariants = {
     },
     primary: {
       bg: '$purple5',
-      color: '$purple10',
+      color: '$purple11',
 
       pressStyle: {
         bg: '$purple6',
@@ -89,7 +89,7 @@ export const buttonVariants = {
     },
     secondary: {
       bg: '$pink5',
-      color: '$pink10',
+      color: '$pink11',
 
       pressStyle: {
         bg: '$pink6',
@@ -98,7 +98,7 @@ export const buttonVariants = {
     },
     success: {
       bg: '$green5',
-      color: '$green10',
+      color: '$green11',
 
       pressStyle: {
         bg: '$green6',
@@ -107,7 +107,7 @@ export const buttonVariants = {
     },
     error: {
       bg: '$red5',
-      color: '$red10',
+      color: '$red11',
 
       pressStyle: {
         bg: '$red6',
@@ -116,7 +116,7 @@ export const buttonVariants = {
     },
     warning: {
       bg: '$yellow5',
-      color: '$yellow10',
+      color: '$yellow11',
 
       pressStyle: {
         bg: '$yellow6',
@@ -125,7 +125,7 @@ export const buttonVariants = {
     },
     info: {
       bg: '$blue5',
-      color: '$blue10',
+      color: '$blue11',
 
       pressStyle: {
         bg: '$blue6',
