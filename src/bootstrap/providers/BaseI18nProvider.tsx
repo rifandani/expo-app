@@ -8,8 +8,8 @@ import { loadLocale } from '#i18n/i18n-util.sync';
 import { useLocale } from '#shared/hooks/useLocale.hook';
 
 function AppStateLanguageListener({ children }: PropsWithChildren) {
-  const { setLocale } = useI18nContext();
   const locale = useLocale();
+  const { setLocale } = useI18nContext();
   const appState = useRef(AppState.currentState);
 
   // Detect when user changing system language by listening to AppState and change the locale based on it
@@ -42,6 +42,7 @@ export function BaseI18nProvider({ children }: PropsWithChildren) {
     setLocaleLoaded(locale);
   }, [locale]);
 
+  // do not load app, if locale not yet loaded
   if (!localeLoaded) return null;
 
   return (

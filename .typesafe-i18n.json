@@ -1,5 +1,6 @@
 {
-  "baseLocale": "en-US",
   "adapter": "react",
+  "outputPath": "./src/i18n/",
+  "baseLocale": "en-US",
   "$schema": "https://unpkg.com/typesafe-i18n@5.26.2/schema/typesafe-i18n.json"
 }

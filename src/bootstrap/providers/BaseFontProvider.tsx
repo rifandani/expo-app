@@ -3,7 +3,8 @@ import { PropsWithChildren, useEffect } from 'react';
 
 /**
  * Load all required fonts.
- * Returns `null` if not loaded yet or there are errors.
+ * Returns `null` if fonts not loaded yet.
+ * Throws error if there are errors.
  */
 export function BaseFontProvider({ children }: PropsWithChildren) {
   const [loaded, error] = useFonts({

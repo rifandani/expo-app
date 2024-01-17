@@ -1,28 +1,22 @@
-# About
+# React Native (Expo) App
 
-Bulletproof Expo 49 Template
+An opinionated and scalable project starter and reference for building bulletproof production ready React Native (Expo) applications.
 
-## Libraries
+## Intro
 
-1. Expo Router v2 features:
+React Native (Expo) is an excellent tool for building front-end applications. It has a diverse ecosystem with hundreds of great libraries for literally anything you might need. However, being forced to make so many choices can be overwhelming. It is also very flexible, you can write React Native (Expo) applications in any way you like, but that flexibility comes with a cost. Since there is no pre-defined architecture that developers can follow, it often leads to a messy, inconsistent, and over-complicated codebase.
 
-- asdasd
-- asdasdasd
+This repo attempts to present a way of creating React Native (Expo) applications using some of the best tools in the ecosystem with a good project structure that scales very well. Based on my experience working with different codebases, this architecture turns out to be the most effective.
 
-2. Tamagui v1 features:
+The goal here is to serve as a collection of resources and best practices when developing React Native (Expo) applications. It is supposed to showcase solving most of the real-world problems of an application in a practical way and help developers write better applications.
 
-- asdasd
-- asdasdasd
+Feel free to explore the codebase to get the most value out of the repo.
 
-3. Tanstack React Query v4
-4. Zustand v4
-5. Zod v3
-6. React Hook Form v7
+## Table of Contents
 
-## Todo
+- [Application Overview](https://github.com/rifandani/expo-app/tree/main/docs/application-verview.md)
+- [](https://github.com/rifandani/expo-app/tree/main/docs/.md)
 
-- [ ] skeleton component with expo-linier-gradient
-- [ ] support tabs consists of Home and Todo screens
-- [ ] Drop web support
-- [ ] supabase in different branches
-- [ ] E2E tests using `maestro` with working examples
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
