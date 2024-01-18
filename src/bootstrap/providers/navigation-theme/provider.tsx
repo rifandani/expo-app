@@ -22,8 +22,8 @@ export function AppNavigationThemeProvider({ children }: PropsWithChildren) {
             ? DarkTheme
             : DefaultTheme
           : theme === 'dark'
-          ? DarkTheme
-          : DefaultTheme
+            ? DarkTheme
+            : DefaultTheme
       }>
       {children}
     </ThemeProvider>

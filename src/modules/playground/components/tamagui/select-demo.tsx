@@ -127,7 +127,7 @@ export function SelectDemoItem(props: SelectProps) {
               bottom={0}
               alignItems="center"
               justifyContent="center"
-              width={'$4'}
+              width="$4"
               pointerEvents="none">
               <Feather name="chevron-down" size={getFontSize((props.size ?? '$true') as any)} />
             </YStack>

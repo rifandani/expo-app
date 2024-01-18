@@ -65,8 +65,8 @@ export function HeaderMore({ children }: HeaderMoreProps) {
           {isFunction(children)
             ? children({ state, setState })
             : !isEmptyChildren(children)
-            ? Children.only(children)
-            : null}
+              ? Children.only(children)
+              : null}
         </Sheet.Frame>
       </Sheet>
     </>
