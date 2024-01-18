@@ -1,13 +1,13 @@
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
-import { BaseFontProvider } from '#bootstrap/providers/BaseFontProvider';
-import { BaseI18nProvider } from '#bootstrap/providers/BaseI18nProvider';
-import { BaseNavigationThemeProvider } from '#bootstrap/providers/BaseNavigationThemeProvider';
-import { BaseTamaguiProvider } from '#bootstrap/providers/BaseTamaguiProvider';
-import { BaseToastProvider } from '#bootstrap/providers/BaseToastProvider';
-import { BaseQueryProvider } from '#bootstrap/providers/query/BaseQueryProvider';
-import { AnimatedSplashScreen } from '#bootstrap/splash-screen/AnimatedSplashScreen';
+import { AppFontProvider } from '#bootstrap/providers/font/provider';
+import { AppI18nProvider } from '#bootstrap/providers/i18n/provider';
+import { AppNavigationThemeProvider } from '#bootstrap/providers/navigation-theme/provider';
+import { AppQueryProvider } from '#bootstrap/providers/query/provider';
+import { AppTamaguiProvider } from '#bootstrap/providers/tamagui/provider';
+import { AppToastProvider } from '#bootstrap/providers/toast/provider';
+import { SplashScreenWrapper } from '#bootstrap/splash-screen/wrapper';
 
 // Instruct SplashScreen not to hide yet, we want to do this manually
 SplashScreen.preventAutoHideAsync().catch(() => {
@@ -16,20 +16,20 @@ SplashScreen.preventAutoHideAsync().catch(() => {
 
 export default function RootLayout() {
   return (
-    <AnimatedSplashScreen>
-      <BaseQueryProvider>
-        <BaseFontProvider>
-          <BaseTamaguiProvider>
-            <BaseI18nProvider>
-              <BaseToastProvider>
-                <BaseNavigationThemeProvider>
+    <SplashScreenWrapper>
+      <AppQueryProvider>
+        <AppFontProvider>
+          <AppTamaguiProvider>
+            <AppI18nProvider>
+              <AppToastProvider>
+                <AppNavigationThemeProvider>
                   <Stack />
-                </BaseNavigationThemeProvider>
-              </BaseToastProvider>
-            </BaseI18nProvider>
-          </BaseTamaguiProvider>
-        </BaseFontProvider>
-      </BaseQueryProvider>
-    </AnimatedSplashScreen>
+                </AppNavigationThemeProvider>
+              </AppToastProvider>
+            </AppI18nProvider>
+          </AppTamaguiProvider>
+        </AppFontProvider>
+      </AppQueryProvider>
+    </SplashScreenWrapper>
   );
 }

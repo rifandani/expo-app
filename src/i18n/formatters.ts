@@ -15,7 +15,7 @@ import type { Formatters, Locales } from './i18n-types';
 
 export const initFormatters: FormattersInitializer<Locales, Formatters> = (locale: Locales) => {
   const formatters: Formatters = {
-    // add your formatter functions here
+    // the types for unused formatters will not be generated
     ignore, // Ignores the variable and returns an empty string
     identity, // Returns the variable without modifications
     lowercase,
