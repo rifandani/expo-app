@@ -9,6 +9,7 @@ export const authApi = {
   login: async (creds: LoginSchema) => {
     const resp = await http
       .post(`auth/login`, {
+        throwHttpErrors: false, // i'm expecting error response from the backend
         json: creds,
         hooks: {
           afterResponse: [

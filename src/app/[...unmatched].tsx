@@ -16,7 +16,7 @@ export default function Unmatched() {
       <YStack f={1} ai="center" jc="center" p={5}>
         <H1 className="text-2xl font-bold">{LL.auth.notFound404()}</H1>
 
-        <Link href="/" replace asChild>
+        <Link href={user ? '/' : '/login/'} replace asChild>
           <BaseButton mt="$2">{LL.auth.backTo({ isLoggedIn: user ? 'true' : 'false' })}</BaseButton>
         </Link>
       </YStack>

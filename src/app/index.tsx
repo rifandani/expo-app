@@ -20,7 +20,7 @@ export default function HomeScreen() {
         }}
       />
 
-      <YStack f={1}>
+      <YStack f={1} p="$3">
         <H1>{LL.home.title()}</H1>
       </YStack>
     </CheckAuthWrapper>

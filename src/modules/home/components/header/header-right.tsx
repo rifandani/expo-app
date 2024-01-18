@@ -6,7 +6,7 @@ import { ListItem, Separator, YGroup, getTokenValue } from 'tamagui';
 import { BaseButton } from '#shared/components/button/base-button';
 import { BaseSheet } from '#shared/components/sheet/base-sheet';
 import { BaseSheetState } from '#shared/components/sheet/types';
-import { useAppStore } from '#shared/hooks/useAppStore.hook';
+import { useAppStore } from '#shared/hooks/use-app-store';
 import { HeaderButtonProps } from '#shared/types/navigation';
 
 export function HeaderRight(_: HeaderButtonProps) {

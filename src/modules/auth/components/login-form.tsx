@@ -4,7 +4,7 @@ import { useToastController } from '@tamagui/toast';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Checkbox, CheckedState, Input, Label, Paragraph, XStack, YStack } from 'tamagui';
+import { Checkbox, CheckedState, Form, Input, Label, Paragraph, XStack } from 'tamagui';
 import { fromZodError } from 'zod-validation-error';
 
 import { authApi } from '#auth/api/auth';
@@ -84,7 +84,7 @@ export function LoginForm() {
   });
 
   return (
-    <YStack mt="$5">
+    <Form mt="$5" onSubmit={onSubmit}>
       <Label htmlFor="username" mb="$2">
         {LL.forms.username()}
       </Label>
@@ -130,15 +130,16 @@ export function LoginForm() {
 
       <RememberMeCheckbox />
 
-      <BaseButton
-        preset="primary"
-        icon={
-          isSubmitting ? <BaseSpinner size="small" preset="primary" /> : <Feather name="log-in" />
-        }
-        disabled={isSubmitting || !isValid}
-        onPress={onSubmit}>
-        {isSubmitting ? LL.forms.loginLoading() : LL.forms.login()} (0lelplR)
-      </BaseButton>
-    </YStack>
+      <Form.Trigger asChild>
+        <BaseButton
+          preset="primary"
+          icon={
+            isSubmitting ? <BaseSpinner size="small" preset="primary" /> : <Feather name="log-in" />
+          }
+          disabled={isSubmitting || !isValid}>
+          {isSubmitting ? LL.forms.loginLoading() : LL.forms.login()} (0lelplR)
+        </BaseButton>
+      </Form.Trigger>
+    </Form>
   );
 }
