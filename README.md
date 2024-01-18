@@ -1,5 +1,13 @@
 # React Native (Expo) App
 
+<div style="display: flex; flex-direction: row; gap: 1rem;">
+
+<a href="https://github.com/rifandani/react-app/actions/workflows/ci.yml"><img src="https://github.com/rifandani/react-app/actions/workflows/ci.yml/badge.svg" alt="CI passing"></a>
+
+<a href="https://deepscan.io/dashboard#view=project&tid=13942&pid=26327&bid=835451"><img src="https://deepscan.io/api/teams/13942/projects/26327/branches/835451/badge/grade.svg" alt="DeepScan grade"></a>
+
+</div>
+
 An opinionated and scalable project starter and reference for building bulletproof production ready React Native (Expo) applications.
 
 ## Intro

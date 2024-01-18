@@ -3,15 +3,16 @@
 The application built with:
 
 - `typescript` + `eslint` + `prettier` -> development productivity
-- `vitest` + `@testing-library/react` -> unit test, integration test, coverage
-- `msw` -> API response mocking for tests
-- `axios` + `@tanstack/react-query` -> server state management + data fetching
+- `ky` + `@tanstack/react-query` -> data fetching
 - `zod` -> runtime schema validation
 - `react-hook-form` -> form management
 - `zustand` -> performant global state
 - `type-fest` -> collection of useful type helpers
 - `@rifandani/nxact-yutiriti` -> collection of useful utils
-- tamagui...
+- `tamagui` react native UI kit
+- `react-native-mmkv` modern and fast local storage
+- `expo` react native framework with rich ecosystem and community
+- `@formatjs` polyfills for Intl i18n
 
 ## Get Started
 
