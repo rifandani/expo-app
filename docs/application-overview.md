@@ -52,6 +52,10 @@ $ npx expo install --fix
 
 # Check for any possible known issues
 $ npx expo-doctor@latest
+
+# Next, update `cli.version` to the new version of `eas-cli` global package in `eas.json` file
+# Next, upgrade xcode / android studio if needed
+# Next, Create a new development build after upgrading
 ```
 
 ## Development
