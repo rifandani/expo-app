@@ -36,6 +36,24 @@ $ cp .env.development.local.example .env.development.local
 $ npm i
 ```
 
+## Expo Updates
+
+If there are any new versions of Expo SDK, here's how to upgrade the app to the next versions:
+
+```bash
+# Update to the latest version of EAS CLI
+$ npm i -g eas-cli
+
+# Install the new version of the Expo SDK package (e.g 50)
+$ npm install expo@^50.0.0
+
+# Upgrade all dependencies to match Expo SDK 50
+$ npx expo install --fix
+
+# Check for any possible known issues
+$ npx expo-doctor@latest
+```
+
 ## Development
 
 Every single time you change the `app.json` file, install native libraries, you need to re-generate native build (CNG) using:
