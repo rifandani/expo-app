@@ -8,7 +8,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     },
     plugins: [
       'expo-localization',
-      'expo-router',
+      ['expo-router', { root: './src/app' }],
       [
         'expo-font',
         {
@@ -67,9 +67,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       },
     },
     extra: {
-      router: {
-        origin: false,
-      },
       eas: {
         projectId: '975abfb8-c490-47ad-ab6d-7b7c8c1a063d',
       },
