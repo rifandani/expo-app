@@ -1,14 +1,14 @@
 {
   "cli": {
-    "version": ">=6.0.0"
+    "version": ">=7.0.0",
+    "requireCommit": true
   },
   "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
       /**
-       * Environment variables defined in your eas.json build profile
-       * will be used when evaluating your app.config.js
+       * Environment variables defined in your eas.json build profile will be used when evaluating your app.config.js
        * when running eas build and will be available to all steps of the build process on the EAS Build server
        */
       "env": {
@@ -22,16 +22,23 @@
         "simulator": true
       }
     },
-    "preview": {
+    "test": {
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_APP_TITLE": "Expo App (Test)",
         "EXPO_PUBLIC_API_BASE_URL": "https://dummyjson.com"
       }
     },
-    "production": {}
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_APP_TITLE": "Expo App",
+        "EXPO_PUBLIC_API_BASE_URL": "https://dummyjson.com"
+      }
+    }
   },
   "submit": {
-    "production": {}
+    "production": {
+      // TODO:
+    }
   }
 }

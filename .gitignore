@@ -7,6 +7,10 @@ node_modules/
 .expo/
 dist/
 web-build/
+android/
+ios/
+# created using `npm run build:ios:local` scripts
+build-*.tar.gz
 
 # Native
 *.orig.*
