@@ -1,17 +1,14 @@
 import { type ConfigContext, type ExpoConfig } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => {
-  console.log(`🦓 ~ "app.config.ts" at line 3: config -> `, config);
-  console.log(`🦓 ~ "app.config.ts" at line 4: config -> `, process.env);
-
   return {
     ...config,
     experiments: {
       typedRoutes: true,
     },
     plugins: [
-      'expo-router',
       'expo-localization',
+      'expo-router',
       [
         'expo-font',
         {
@@ -39,12 +36,13 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       ],
     ],
     owner: 'rifandani',
-    name: 'Expo App',
+    name: process.env.EXPO_PUBLIC_APP_TITLE!,
     slug: 'expo-app',
     scheme: 'expo-app',
     version: '1.0.0',
     orientation: 'portrait',
     userInterfaceStyle: 'automatic',
+    platforms: ['android', 'ios'],
     assetBundlePatterns: ['**/*'],
     icon: './src/assets/icon.png',
     splash: {
@@ -67,10 +65,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
         resizeMode: 'cover',
         backgroundColor: '#000',
       },
-    },
-    web: {
-      bundler: 'metro',
-      favicon: './src/assets/favicon.png',
     },
     extra: {
       router: {

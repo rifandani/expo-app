@@ -10,7 +10,7 @@ module.exports = function (api) {
       // '@babel/plugin-proposal-export-namespace-from' is now already included in babel-preset-expo in Expo SDK 49
       // 'transform-inline-environment-variables' process env is now already supported in Expo SDK 49
 
-      // NOTE: this is optional, you don't *need* the compiler
+      'react-native-reanimated/plugin',
       [
         '@tamagui/babel-plugin',
         {
@@ -19,8 +19,6 @@ module.exports = function (api) {
           logTimings: true,
         },
       ],
-      'react-native-reanimated/plugin',
-      'expo-router/babel',
     ],
   };
 };
