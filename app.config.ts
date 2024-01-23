@@ -8,7 +8,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     },
     plugins: [
       'expo-localization',
-      ['expo-router', { root: './src/app' }],
+      'expo-router',
       [
         'expo-font',
         {
