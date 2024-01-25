@@ -1,4 +1,4 @@
-import { type ConfigContext, type ExpoConfig } from 'expo/config';
+import type { ConfigContext, ExpoConfig } from 'expo/config';
 
 /**
  * so that we can install different app based on the variant without overriding previous installed app
