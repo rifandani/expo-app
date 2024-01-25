@@ -1,4 +1,4 @@
-import '#bootstrap/polyfills/intl';
+import '#bootstrap/polyfills/intel';
 import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { AppState } from 'react-native';
 
