@@ -2,7 +2,7 @@ import { Stack } from 'expo-router/stack';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { AppI18nProvider } from '#bootstrap/providers/i18n/provider';
-import { AppNavigationThemeProvider } from '#bootstrap/providers/navigation-theme/provider';
+import { AppNavigationProvider } from '#bootstrap/providers/navigation/provider';
 import { AppQueryProvider } from '#bootstrap/providers/query/provider';
 import { AppTamaguiProvider } from '#bootstrap/providers/tamagui/provider';
 import { AppToastProvider } from '#bootstrap/providers/toast/provider';
@@ -16,19 +16,17 @@ SplashScreen.preventAutoHideAsync().catch(() => {
 export default function RootLayout() {
   return (
     <SplashScreenWrapper>
-      {/* <AppFontProvider> */}
       <AppI18nProvider>
         <AppQueryProvider>
           <AppTamaguiProvider>
-            <AppNavigationThemeProvider>
+            <AppNavigationProvider>
               <AppToastProvider>
                 <Stack />
               </AppToastProvider>
-            </AppNavigationThemeProvider>
+            </AppNavigationProvider>
           </AppTamaguiProvider>
         </AppQueryProvider>
       </AppI18nProvider>
-      {/* </AppFontProvider> */}
     </SplashScreenWrapper>
   );
 }

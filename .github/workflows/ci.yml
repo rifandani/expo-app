@@ -1,4 +1,4 @@
-name: CI
+name: Lint, Typecheck, and Test (Continous Integration)
 
 on:
   push:

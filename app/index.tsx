@@ -16,6 +16,7 @@ export default function HomeScreen() {
       <Stack.Screen
         options={{
           title: 'Home',
+          headerBackVisible: false,
           headerRight: (props) => <HeaderRight {...props} />,
         }}
       />
