@@ -1,5 +1,15 @@
 import { type ConfigContext, type ExpoConfig } from 'expo/config';
 
+/**
+ * so that we can install different app based on the variant without overriding previous installed app
+ */
+const bundleId =
+  process.env.APP_VARIANT === 'development'
+    ? 'com.rifandani.expoapp.development'
+    : process.env.APP_VARIANT === 'test'
+      ? 'com.rifandani.expoapp.test'
+      : 'com.rifandani.expoapp';
+
 export default ({ config }: ConfigContext): ExpoConfig => {
   return {
     ...config,
@@ -51,14 +61,16 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       backgroundColor: '#000',
     },
     android: {
-      package: 'com.rifandani.expoapp',
+      package: bundleId,
+      // versionCode: 1,
       adaptiveIcon: {
         foregroundImage: './src/assets/adaptive-icon.png',
         backgroundColor: '#000',
       },
     },
     ios: {
-      bundleIdentifier: 'com.rifandani.expoapp',
+      bundleIdentifier: bundleId,
+      // buildNumber: 1,
       splash: {
         image: './src/assets/splash.png',
         tabletImage: './src/assets/splash-tablet.png',

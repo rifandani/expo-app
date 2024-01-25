@@ -3,7 +3,7 @@ import { Anchor, YStack } from 'tamagui';
 /**
  * The Anchor component provides a way to link to external websites.
  * It extends SizableText, adding the href, target, and rel attributes.
- * On native, it will use React Native Linking.openURL, on web it will render to an a element with href set appropriately.
+ * On native, it will use React Native Linking.openURL
  */
 export function AnchorDemo() {
   return (

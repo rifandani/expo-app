@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { Stack } from 'expo-router/stack';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { AppI18nProvider } from '#bootstrap/providers/i18n/provider';

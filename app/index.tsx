@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { Stack } from 'expo-router/stack';
 import { H1, YStack } from 'tamagui';
 
 import { HeaderRight } from '#home/components/header/header-right';

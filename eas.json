@@ -12,6 +12,7 @@
        * when running eas build and will be available to all steps of the build process on the EAS Build server
        */
       "env": {
+        "APP_VARIANT": "development",
         "EXPO_PUBLIC_APP_TITLE": "Expo App (Dev)",
         "EXPO_PUBLIC_API_BASE_URL": "https://dummyjson.com"
       }
@@ -25,12 +26,15 @@
     "test": {
       "distribution": "internal",
       "env": {
+        "APP_VARIANT": "test",
         "EXPO_PUBLIC_APP_TITLE": "Expo App (Test)",
         "EXPO_PUBLIC_API_BASE_URL": "https://dummyjson.com"
       }
     },
     "production": {
+      "autoIncrement": true,
       "env": {
+        "APP_VARIANT": "production",
         "EXPO_PUBLIC_APP_TITLE": "Expo App",
         "EXPO_PUBLIC_API_BASE_URL": "https://dummyjson.com"
       }
@@ -38,7 +42,9 @@
   },
   "submit": {
     "production": {
-      // TODO:
+      // "android": {
+      //   "serviceAccountKeyPath": "./" // git ignored generatedservice account from google cloud
+      // }
     }
   }
 }

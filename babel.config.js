@@ -1,5 +1,6 @@
 /* eslint-env node */
 
+// run `dev:clean` everytime babel config changes, to clear bundler cache
 /** @type {import('@babel/core').ConfigFunction} */
 module.exports = function (api) {
   api.cache(true);
