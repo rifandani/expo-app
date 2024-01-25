@@ -34,6 +34,8 @@
     "release": "bumpp"
   },
   "dependencies": {
+    "@dev-plugins/react-navigation": "^0.0.5",
+    "@dev-plugins/react-query": "^0.0.5",
     "@expo/metro-config": "~0.17.3",
     "@expo/vector-icons": "^14.0.0",
     "@formatjs/intl-getcanonicallocales": "^2.3.0",

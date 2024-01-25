@@ -1,4 +1,4 @@
-name: Release and Build
+name: Release, Build, Publish (Continous Delivery)
 
 permissions:
   contents: write
@@ -42,7 +42,7 @@ jobs:
         with:
           packager: npm
           eas-version: latest
-          token: ${{ secrets.EXPO_APP }}
+          token: ${{secrets.EXPO_APP}}
 
       - name: Install dependencies
         run: npm ci
@@ -50,3 +50,9 @@ jobs:
       - name: Build on EAS
         # only android for now
         run: eas build --platform android --non-interactive
+
+  # TODO:
+  # publish:
+  #   name: Build the app using eas-cli
+  #   runs-on: ubuntu-latest
+  #   steps:
