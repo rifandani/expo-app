@@ -1,4 +1,4 @@
-import { QueryOptions, useQuery } from '@tanstack/react-query';
+import { UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { Except } from 'type-fest';
 
 import { ErrorApiResponseSchema } from '#shared/schemas/error';
@@ -10,7 +10,10 @@ import { GetUserApiRequest, GetUserApiResponse } from '#user/schemas/user';
  */
 export const useGetUser = (
   params: GetUserApiRequest,
-  options?: Except<QueryOptions<GetUserApiResponse, ErrorApiResponseSchema>, 'queryKey' | 'queryFn'>
+  options?: Except<
+    UseQueryOptions<GetUserApiResponse, ErrorApiResponseSchema>,
+    'queryKey' | 'queryFn'
+  >
 ) => {
   const queryKey = userKeys.detail(params);
   const queryFn = () => userApi.getDetail(params);

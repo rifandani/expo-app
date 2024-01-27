@@ -28,7 +28,7 @@ export function useCheckAuth() {
       }
 
       if (user && isLoginRoute) {
-        push('/');
+        push('/home');
         return;
       }
 

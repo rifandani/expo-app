@@ -26,23 +26,15 @@ type HeaderMoreProps = HeaderButtonProps & {
 export function HeaderMore({ children }: HeaderMoreProps) {
   const [state, setState] = useState<State>({ open: false, position: 0 });
 
-  const onPressMore = () => {
-    setState({ ...state, open: true });
-  };
-  const onOpenChange = (open: boolean) => {
-    setState({ ...state, open });
-  };
-  const onPositionChange = (position: number) => {
-    setState({ ...state, position });
-  };
-
   return (
     <>
       <Button
         transparent
         circular
         icon={<Feather name="more-vertical" size={20} />}
-        onPress={onPressMore}
+        onPress={() => {
+          setState({ ...state, open: true });
+        }}
       />
 
       <Sheet
@@ -54,8 +46,12 @@ export function HeaderMore({ children }: HeaderMoreProps) {
         open={state.open}
         forceRemoveScrollEnabled={state.open}
         position={state.position}
-        onOpenChange={onOpenChange}
-        onPositionChange={onPositionChange}
+        onOpenChange={(open: boolean) => {
+          setState({ ...state, open });
+        }}
+        onPositionChange={(position) => {
+          setState({ ...state, position });
+        }}
         animation="medium">
         <Sheet.Overlay animation="lazy" enterStyle={{ opacity: 0 }} exitStyle={{ opacity: 0 }} />
 
