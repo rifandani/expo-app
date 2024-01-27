@@ -16,6 +16,7 @@ export function useCheckAuth() {
   const { push } = useRouter();
   const pathname = usePathname();
   const user = useAppStore((state) => state.user);
+  const resetUser = useAppStore((state) => state.resetUser);
   const [appReady, setAppReady] = useState(false);
 
   useFocusEffect(
@@ -28,12 +29,13 @@ export function useCheckAuth() {
       }
 
       if (user && isLoginRoute) {
-        push('/home');
+        // push('/home');
+        resetUser();
         return;
       }
 
       setAppReady(true);
-    }, [pathname, push, user])
+    }, [pathname, push, resetUser, user])
   );
 
   return [appReady];

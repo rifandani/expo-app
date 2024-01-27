@@ -1,9 +1,6 @@
 import Feather from '@expo/vector-icons/Feather';
 import { Tabs } from 'expo-router';
 
-/**
- * layout only runs once
- */
 export default function TabsLayout() {
   return (
     <Tabs>

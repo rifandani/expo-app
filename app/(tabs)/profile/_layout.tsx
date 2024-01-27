@@ -9,9 +9,6 @@ const SAV = styled(SafeAreaView, {
   f: 1,
 });
 
-/**
- * layout only runs once
- */
 export default function ProfileLayout() {
   return (
     <SAV>

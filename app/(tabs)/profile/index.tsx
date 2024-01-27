@@ -16,14 +16,10 @@ export default function TabsProfileScreen() {
   const { push } = useRouter();
   const { LL } = useI18nContext();
   const user = useAppStore((state) => state.user);
-  const resetUser = useAppStore((state) => state.resetUser);
-  const { data } = useGetUser(
-    {
-      // `user` should not be `null`, we already check it in `CheckAuthWrapper` component in _layout
-      id: user!.id,
-    },
-    { enabled: !!user }
-  );
+  const { data } = useGetUser({
+    // `user` should not be `null`, we already check it in `CheckAuthWrapper` component in _layout
+    id: user!.id,
+  });
 
   return (
     <YStack f={1} p="$3">
@@ -69,7 +65,6 @@ export default function TabsProfileScreen() {
         icon={<Feather name="log-out" color={getTokenValue('$red10Dark')} />}
         iconAfter={<Feather name="chevron-right" color={getTokenValue('$red10Dark')} />}
         onPress={() => {
-          resetUser(); // FIXME: this will throw error on `id: user!.id,`
           push('/login');
         }}>
         <ListItem.Text color="$red10Dark">Logout</ListItem.Text>
