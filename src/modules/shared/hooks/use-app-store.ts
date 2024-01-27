@@ -59,7 +59,7 @@ export const useAppStore = create<AppStore>()(
     }),
     {
       name: appStorageId, // name of the item in the storage (must be unique)
-      storage: createJSONStorage(() => appStateStorage), //langStorageId by default, 'localStorage' is used
+      storage: createJSONStorage(() => appStateStorage), // custom mmkv storage
     }
   )
 );
