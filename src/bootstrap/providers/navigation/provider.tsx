@@ -1,8 +1,9 @@
 import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useNavigationContainerRef } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { PropsWithChildren, useMemo } from 'react';
-import { StatusBar, useColorScheme } from 'react-native';
+import { useColorScheme } from 'react-native';
 
 import { useAppStore } from '#shared/hooks/use-app-store';
 
@@ -30,10 +31,7 @@ export function AppNavigationProvider({ children }: PropsWithChildren) {
 
   return (
     <ThemeProvider value={value}>
-      <StatusBar
-        barStyle={value.dark ? 'light-content' : 'dark-content'}
-        backgroundColor={value.colors.background}
-      />
+      <StatusBar animated style={value.dark ? 'light' : 'dark'} />
 
       {children}
     </ThemeProvider>
