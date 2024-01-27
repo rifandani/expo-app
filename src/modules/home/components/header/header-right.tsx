@@ -14,19 +14,6 @@ export function HeaderRight(_: HeaderButtonProps) {
   const resetUser = useAppStore((state) => state.resetUser);
   const [state, setState] = useState<BaseSheetState>({ open: false, position: 0 });
 
-  const onPressMore = () => {
-    setState({ ...state, open: true });
-  };
-  const onPressLinkToProfile = () => {
-    setState({ ...state, open: false });
-    router.push('/profile');
-  };
-  const onPressLogout = () => {
-    setState({ ...state, open: false });
-    resetUser();
-    router.push('/login');
-  };
-
   return (
     <>
       <BaseButton
@@ -34,7 +21,9 @@ export function HeaderRight(_: HeaderButtonProps) {
         circular
         size="$3"
         icon={<Feather name="more-vertical" size={20} />}
-        onPress={onPressMore}
+        onPress={() => {
+          setState({ ...state, open: true });
+        }}
       />
 
       <BaseSheet
@@ -49,7 +38,10 @@ export function HeaderRight(_: HeaderButtonProps) {
               title="Profile"
               icon={<Feather name="user" size={20} />}
               iconAfter={<Feather name="chevron-right" size={20} />}
-              onPress={onPressLinkToProfile}
+              onPress={() => {
+                setState({ ...state, open: false });
+                router.push('/profile');
+              }}
             />
           </YGroup.Item>
 
@@ -57,7 +49,11 @@ export function HeaderRight(_: HeaderButtonProps) {
             <ListItem
               pressStyle={{ bg: '$red5' }}
               icon={<Feather name="log-out" size={20} color={getTokenValue('$red10Dark')} />}
-              onPress={onPressLogout}>
+              onPress={() => {
+                setState({ ...state, open: false });
+                resetUser();
+                router.push('/login');
+              }}>
               <ListItem.Text color="$red10Dark">Logout</ListItem.Text>
             </ListItem>
           </YGroup.Item>

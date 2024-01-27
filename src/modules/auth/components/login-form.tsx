@@ -4,7 +4,7 @@ import { useToastController } from '@tamagui/toast';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Checkbox, CheckedState, Form, Input, Label, Paragraph, XStack } from 'tamagui';
+import { Checkbox, Form, Input, Label, Paragraph, XStack } from 'tamagui';
 import { fromZodError } from 'zod-validation-error';
 
 import { authApi } from '#auth/api/auth';
@@ -20,13 +20,14 @@ function RememberMeCheckbox() {
   const { LL } = useI18nContext();
   const [state, setState] = useState({ rememberMe: false });
 
-  const onCheckedChange = (checked: CheckedState) => {
-    setState((prev) => ({ ...prev, rememberMe: !!checked }));
-  };
-
   return (
     <XStack my="$2" ai="center" space="$2">
-      <Checkbox id="rememberMe" checked={state.rememberMe} onCheckedChange={onCheckedChange}>
+      <Checkbox
+        id="rememberMe"
+        checked={state.rememberMe}
+        onCheckedChange={(checked) => {
+          setState((prev) => ({ ...prev, rememberMe: !!checked }));
+        }}>
         <Checkbox.Indicator>
           <Feather name="check" />
         </Checkbox.Indicator>
@@ -80,7 +81,7 @@ export function LoginForm() {
 
     // on success
     setUser(loginResponse); // set user data to store
-    router.push('/');
+    router.push('/home');
   });
 
   return (

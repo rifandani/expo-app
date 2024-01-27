@@ -5,28 +5,23 @@ import { ListItem, Separator, YGroup } from 'tamagui';
 import { useI18nContext } from '#i18n/i18n-react';
 import { BaseSheet } from '#shared/components/sheet/base-sheet';
 import { BaseSheetState } from '#shared/components/sheet/types';
-import { AppStoreState, useAppStore } from '#shared/hooks/use-app-store';
+import { useAppStore } from '#shared/hooks/use-app-store';
 import { ProfileListItem } from '#user/components/profile-list-item';
 
 export function ProfileThemeChanger() {
+  const { LL } = useI18nContext();
   const theme = useAppStore((state) => state.theme);
   const setTheme = useAppStore((state) => state.setTheme);
   const [state, setState] = useState<BaseSheetState>({ open: false, position: 0 });
-  const { LL } = useI18nContext();
-
-  const onPressOpenSheet = () => {
-    setState({ ...state, open: true });
-  };
-  const onPressChangeTheme = (newTheme: AppStoreState['theme']) => {
-    setTheme(newTheme);
-  };
 
   return (
     <>
       <ProfileListItem
         title={LL.common.theme()}
         icon={<Feather name="moon" />}
-        onPress={onPressOpenSheet}
+        onPress={() => {
+          setState({ ...state, open: true });
+        }}
       />
 
       <BaseSheet
@@ -41,7 +36,7 @@ export function ProfileThemeChanger() {
               title={LL.common.light()}
               icon={<Feather name="sun" size={20} />}
               iconAfter={theme === 'light' ? <Feather name="check-circle" size={20} /> : undefined}
-              onPress={() => onPressChangeTheme('light')}
+              onPress={() => setTheme('light')}
             />
           </YGroup.Item>
           <YGroup.Item>
@@ -50,7 +45,7 @@ export function ProfileThemeChanger() {
               title={LL.common.dark()}
               icon={<Feather name="moon" size={20} />}
               iconAfter={theme === 'dark' ? <Feather name="check-circle" size={20} r /> : undefined}
-              onPress={() => onPressChangeTheme('dark')}
+              onPress={() => setTheme('dark')}
             />
           </YGroup.Item>
           <YGroup.Item>
@@ -61,7 +56,7 @@ export function ProfileThemeChanger() {
               iconAfter={
                 theme === 'system' ? <Feather name="check-circle" size={20} r /> : undefined
               }
-              onPress={() => onPressChangeTheme('system')}
+              onPress={() => setTheme('system')}
             />
           </YGroup.Item>
         </YGroup>

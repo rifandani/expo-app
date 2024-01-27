@@ -2,7 +2,7 @@ import { useReactNavigationDevTools } from '@dev-plugins/react-navigation';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useNavigationContainerRef } from 'expo-router';
 import { PropsWithChildren, useMemo } from 'react';
-import { useColorScheme } from 'react-native';
+import { StatusBar, useColorScheme } from 'react-native';
 
 import { useAppStore } from '#shared/hooks/use-app-store';
 
@@ -28,5 +28,14 @@ export function AppNavigationProvider({ children }: PropsWithChildren) {
 
   useReactNavigationDevTools(navigationRef);
 
-  return <ThemeProvider value={value}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider value={value}>
+      <StatusBar
+        barStyle={value.dark ? 'light-content' : 'dark-content'}
+        backgroundColor={value.colors.background}
+      />
+
+      {children}
+    </ThemeProvider>
+  );
 }
